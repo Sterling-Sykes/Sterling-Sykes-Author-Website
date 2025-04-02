@@ -1,177 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sterling Sykes | Worlds Beyond</title>
-  <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      overflow-x: hidden;
-      background: radial-gradient(ellipse at center, #000 0%, #050505 100%);
-      color: white;
-    }
-
-    header {
-      display: none;
-    }
-
-    .solar-system {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-      background: url('https://www.transparenttextures.com/patterns/stardust.png');
-      background-size: cover;
-    }
-
-    .sun {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 150px;
-      height: 150px;
-      background: radial-gradient(circle, #ffd700, #ff8c00);
-      border-radius: 50%;
-      box-shadow: 0 0 60px #ffcc00;
-      text-align: center;
-      line-height: 150px;
-      font-size: 1.3rem;
-      font-family: 'Uncial Antiqua', cursive;
-      z-index: 10;
-    }
-
-    .orbit {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      border: 1px dashed rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      animation: rotate linear infinite;
-    }
-
-    .planet {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-      text-align: center;
-    }
-
-    .planet::after {
-      content: attr(data-name);
-      position: absolute;
-      top: 120%;
-      left: 50%;
-      transform: translateX(-50%);
-      color: white;
-      font-family: 'Uncial Antiqua', cursive;
-      font-size: 0.8rem;
-      text-shadow: 1px 1px 2px black;
-    }
-
-    .planet:hover::before {
-      content: attr(data-lore);
-      position: absolute;
-      bottom: 140%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0, 0, 0, 0.8);
-      padding: 0.5rem;
-      border-radius: 6px;
-      white-space: nowrap;
-      font-size: 0.85rem;
-      color: #fff;
-      box-shadow: 0 0 10px #222;
-    }
-
-    .planet:hover {
-      transform: scale(1.2) translate(-50%, -50%);
-    }
-
-    @keyframes rotate {
-      0% { transform: translate(-50%, -50%) rotate(0deg); }
-      100% { transform: translate(-50%, -50%) rotate(360deg); }
-    }
-
-    #cleos { background: gold; width: 30px; height: 30px; animation-duration: 40s; }
-    #kallabor { background: crimson; width: 26px; height: 26px; animation-duration: 50s; }
-    #gastyen { background: forestgreen; width: 32px; height: 32px; animation-duration: 60s; }
-    #epio { background: lightblue; width: 20px; height: 20px; animation-duration: 70s; }
-    #claya { background: lightgray; width: 20px; height: 20px; animation-duration: 70s; }
-
-    .section {
-      height: 100vh;
-      padding: 4rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-size: 1.2rem;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-
-    .section.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
   <div class="solar-system">
-    <div class="sun">The Prophecy</div>
-    <div class="orbit" style="width: 300px; height: 300px;">
-      <div id="cleos" class="planet" data-name="Cleos" data-lore="A golden, earthlike world of balance." onclick="scrollToSection('cleos-section')"></div>
-    </div>
-    <div class="orbit" style="width: 400px; height: 400px;">
-      <div id="kallabor" class="planet" data-name="Kallabor" data-lore="An evil ocean world shrouded in storms." onclick="scrollToSection('kallabor-section')"></div>
-    </div>
-    <div class="orbit" style="width: 500px; height: 500px;">
-      <div id="gastyen" class="planet" data-name="Gastyen" data-lore="Towering cliffs cloaked in ancient forest." onclick="scrollToSection('gastyen-section')"></div>
-    </div>
-    <div class="orbit" style="width: 600px; height: 600px;">
-      <div id="epio" class="planet" data-name="Epio" data-lore="One of the twin frozen moons." onclick="scrollToSection('epio-section')"></div>
-    </div>
-    <div class="orbit" style="width: 650px; height: 650px;">
-      <div id="claya" class="planet" data-name="Claya" data-lore="The second frozen moon, haunting and still." onclick="scrollToSection('claya-section')"></div>
-    </div>
+    <div class="sun-text">An author in the dark, bringing you into the light</div>
+    <div class="planet" style="background: forestgreen;" data-name="Gastyen"></div>
+    <div class="planet" style="background: crimson;" data-name="Kallabor"></div>
+    <div class="planet" style="background: gold;" data-name="Cleos"></div>
+    <div class="planet" style="background: lightblue;" data-name="Epio"></div>
+    <div class="planet" style="background: lightgray;" data-name="Claya"></div>
   </div>
-
-  <div id="cleos-section" class="section" style="background:#111;">Welcome to Cleos</div>
-  <div id="kallabor-section" class="section" style="background:#220000;">Welcome to Kallabor</div>
-  <div id="gastyen-section" class="section" style="background:#003300;">Welcome to Gastyen</div>
-  <div id="epio-section" class="section" style="background:#001122;">Welcome to Epio</div>
-  <div id="claya-section" class="section" style="background:#222;">Welcome to Claya</div>
-
-  <script>
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-      new Audio('https://assets.mixkit.co/sfx/download/mixkit-video-game-magic-notification-234.wav').play();
-    }
-
-    const sections = document.querySelectorAll('.section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.3 });
-
-    sections.forEach(section => observer.observe(section));
-  </script>
+  <script src="script.js"></script>
 </body>
-
 </html>
