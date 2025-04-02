@@ -2,47 +2,112 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sterling Sykes | Fantasy Author</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: #0e0e0e;
-      color: #f0f0f0;
-      font-family: Georgia, serif;
+      font-family: 'Inter', sans-serif;
+      background: #0d0d0d;
+      color: #f4f4f4;
+      overflow-x: hidden;
+    }
+    header {
+      position: relative;
+      background-image: url("https://raw.githubusercontent.com/sterling-sykes/Sterling-Sykes-Author-Website/main/BaraBoa_Background.png");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      background-image: url("https://cdn.midjourney.com/your-bara-boa-image.png");
-      background-size: cover;
-      background-position: center;
-      text-shadow: 2px 2px 8px #000;
-    }
-
-    .content {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 2rem 3rem;
-      border-radius: 12px;
       text-align: center;
     }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      margin: 0;
+      color: #ffffff;
+      text-shadow: 2px 2px 10px #000000;
     }
-
-    p {
+    header p {
       font-size: 1.2rem;
-      color: #ccc;
+      max-width: 700px;
+      margin-top: 1rem;
+      color: #ddd;
+      text-shadow: 1px 1px 5px #000000;
+    }
+    nav {
+      background-color: #1a1a1a;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      z-index: 1000;
+    }
+    nav a {
+      color: #f4f4f4;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #b57edc;
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #eaeaea;
+    }
+    footer {
+      background-color: #111;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
     }
   </style>
 </head>
 <body>
-  <div class="content">
+  <header>
     <h1>Sterling Sykes</h1>
-    <p>Author of sweeping fantasy. Website coming soon...</p>
-  </div>
+    <p>Fantasy & Sci-Fi Author | Weaving worlds of wonder, sacrifice, and storytelling soul</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2 class="section-title">About the Author</h2>
+    <p>Sterling Sykes is a fiction author driven by an insatiable love for character-driven fantasy and science fiction. His stories often dwell in the space between sacrifice and wonder, exploring the internal battle between light and shadow. After years of private writing, Sterling is now emerging from the creative cave to share his world with readers who crave storytelling that dares to feel deeply.</p>
+  </section>
+
+  <section id="blog">
+    <h2 class="section-title">Latest Posts</h2>
+    <p><em>Blog system coming soon. Stay tuned for storytelling insights, behind-the-scenes worldbuilding, and reflections on the writing life.</em></p>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Stay in Touch</h2>
+    <p>If you'd like to be notified of future stories, blog posts, or updates, join the newsletter (coming soon). In the meantime, feel free to connect via <a href="mailto:your@email.com" style="color: #b57edc; text-decoration: underline;">email</a>.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Sterling Sykes. All rights reserved.
+  </footer>
 </body>
 </html>
