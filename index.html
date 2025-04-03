@@ -5,62 +5,180 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sterling Sykes | Worlds Beyond</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    html, body {
+    body, html {
       margin: 0;
       padding: 0;
-      height: 100%;
-      background: black;
-      color: white;
-      font-family: Arial, sans-serif;
-    }
-    .solar-system {
-      position: relative;
       width: 100vw;
       height: 100vh;
-      background: radial-gradient(circle at center, #111 0%, #000 100%);
-      overflow: hidden;
+      font-family: 'EB Garamond', serif;
+      background: radial-gradient(ellipse at center, #000 0%, #050505 100%);
+      color: white;
+      overflow-x: hidden;
     }
-    .grid-overlay {
-      position: absolute;
+
+    .solar-system {
+      position: relative;
       width: 100%;
       height: 100%;
-      background-size: 50px 50px;
-      background-image:
-        linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
-      z-index: 100;
+    }
+
+    .sun {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, #ffd700, #ff8c00);
+      border-radius: 50%;
+      box-shadow: 0 0 60px #ffcc00;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .sun::before {
+      content: "An author in the dark, bringing you into the light";
+      color: white;
+      text-shadow: 2px 2px 6px #000;
+      display: block;
+      font-size: 1.2rem;
+    }
+
+    .grid-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-rows: repeat(10, 1fr);
       pointer-events: none;
     }
-    .coordinate-label {
-      position: absolute;
-      color: rgba(255,255,255,0.3);
+
+    .grid-overlay div {
+      border: 1px solid rgba(255, 255, 255, 0.1);
       font-size: 10px;
-      z-index: 101;
+      color: rgba(255,255,255,0.2);
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 2px;
     }
   </style>
 </head>
 <body>
   <div class="solar-system">
-    <div class="grid-overlay"></div>
-    <!-- Coordinate labels -->
-    <script>
-      const gridSize = 50;
-      const overlay = document.querySelector('.grid-overlay');
-      const cols = Math.floor(window.innerWidth / gridSize);
-      const rows = Math.floor(window.innerHeight / gridSize);
+    <div class="sun"></div>
+    <div class="grid-overlay">
+      <div>0,0</div>
+<div>1,0</div>
+<div>2,0</div>
+<div>3,0</div>
+<div>4,0</div>
+<div>5,0</div>
+<div>6,0</div>
+<div>7,0</div>
+<div>8,0</div>
+<div>9,0</div>
+<div>0,1</div>
+<div>1,1</div>
+<div>2,1</div>
+<div>3,1</div>
+<div>4,1</div>
+<div>5,1</div>
+<div>6,1</div>
+<div>7,1</div>
+<div>8,1</div>
+<div>9,1</div>
+<div>0,2</div>
+<div>1,2</div>
+<div>2,2</div>
+<div>3,2</div>
+<div>4,2</div>
+<div>5,2</div>
+<div>6,2</div>
+<div>7,2</div>
+<div>8,2</div>
+<div>9,2</div>
+<div>0,3</div>
+<div>1,3</div>
+<div>2,3</div>
+<div>3,3</div>
+<div>4,3</div>
+<div>5,3</div>
+<div>6,3</div>
+<div>7,3</div>
+<div>8,3</div>
+<div>9,3</div>
+<div>0,4</div>
+<div>1,4</div>
+<div>2,4</div>
+<div>3,4</div>
+<div>4,4</div>
+<div>5,4</div>
+<div>6,4</div>
+<div>7,4</div>
+<div>8,4</div>
+<div>9,4</div>
+<div>0,5</div>
+<div>1,5</div>
+<div>2,5</div>
+<div>3,5</div>
+<div>4,5</div>
+<div>5,5</div>
+<div>6,5</div>
+<div>7,5</div>
+<div>8,5</div>
+<div>9,5</div>
+<div>0,6</div>
+<div>1,6</div>
+<div>2,6</div>
+<div>3,6</div>
+<div>4,6</div>
+<div>5,6</div>
+<div>6,6</div>
+<div>7,6</div>
+<div>8,6</div>
+<div>9,6</div>
+<div>0,7</div>
+<div>1,7</div>
+<div>2,7</div>
+<div>3,7</div>
+<div>4,7</div>
+<div>5,7</div>
+<div>6,7</div>
+<div>7,7</div>
+<div>8,7</div>
+<div>9,7</div>
+<div>0,8</div>
+<div>1,8</div>
+<div>2,8</div>
+<div>3,8</div>
+<div>4,8</div>
+<div>5,8</div>
+<div>6,8</div>
+<div>7,8</div>
+<div>8,8</div>
+<div>9,8</div>
+<div>0,9</div>
+<div>1,9</div>
+<div>2,9</div>
+<div>3,9</div>
+<div>4,9</div>
+<div>5,9</div>
+<div>6,9</div>
+<div>7,9</div>
+<div>8,9</div>
+<div>9,9</div>
 
-      for (let y = 0; y <= rows; y++) {
-        for (let x = 0; x <= cols; x++) {
-          const label = document.createElement('div');
-          label.className = 'coordinate-label';
-          label.style.left = (x * gridSize + 2) + 'px';
-          label.style.top = (y * gridSize + 2) + 'px';
-          label.innerText = `(${x}, ${y})`;
-          document.body.appendChild(label);
-        }
-      }
-    </script>
+    </div>
   </div>
 </body>
 </html>
