@@ -3,27 +3,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sterling Sykes | Worlds Beyond</title>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Cardo:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    .solar-system {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at center, #111 0%, #000 100%);
+      overflow: hidden;
+    }
+    .grid-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: 50px 50px;
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
+      z-index: 100;
+      pointer-events: none;
+    }
+    .coordinate-label {
+      position: absolute;
+      color: rgba(255,255,255,0.3);
+      font-size: 10px;
+      z-index: 101;
+    }
+  </style>
 </head>
 <body>
   <div class="solar-system">
-    <div class="sun">An author in the dark, bringing you into the light</div>
-    <div class="planet" style="width: 180px; height: 180px; background: forestgreen;" data-name="Gastyen" onclick="scrollToSection('gastyen-section')"></div>
-    <div class="planet" style="width: 130px; height: 130px; background: crimson;" data-name="Kallabor" onclick="scrollToSection('kallabor-section')"></div>
-    <div class="planet" style="width: 180px; height: 180px; background: gold;" data-name="Cleos" onclick="scrollToSection('cleos-section')"></div>
-    <div class="planet" style="width: 155px; height: 155px; background: lightblue;" data-name="Epio" onclick="scrollToSection('epio-section')"></div>
-    <div class="planet" style="width: 165px; height: 165px; background: lightgray;" data-name="Claya" onclick="scrollToSection('claya-section')"></div>
+    <div class="grid-overlay"></div>
+    <!-- Coordinate labels -->
+    <script>
+      const gridSize = 50;
+      const overlay = document.querySelector('.grid-overlay');
+      const cols = Math.floor(window.innerWidth / gridSize);
+      const rows = Math.floor(window.innerHeight / gridSize);
+
+      for (let y = 0; y <= rows; y++) {
+        for (let x = 0; x <= cols; x++) {
+          const label = document.createElement('div');
+          label.className = 'coordinate-label';
+          label.style.left = (x * gridSize + 2) + 'px';
+          label.style.top = (y * gridSize + 2) + 'px';
+          label.innerText = `(${x}, ${y})`;
+          document.body.appendChild(label);
+        }
+      }
+    </script>
   </div>
-
-  <div id="cleos-section" class="section">Welcome to Cleos<div class="back-link" onclick="scrollToTop()">Return to Home</div></div>
-  <div id="kallabor-section" class="section" style="background:#220000;">Welcome to Kallabor<div class="back-link" onclick="scrollToTop()">Return to Home</div></div>
-  <div id="gastyen-section" class="section" style="background:#003300;">Welcome to Gastyen<div class="back-link" onclick="scrollToTop()">Return to Home</div></div>
-  <div id="epio-section" class="section" style="background:#001122;">Welcome to Epio<div class="back-link" onclick="scrollToTop()">Return to Home</div></div>
-  <div id="claya-section" class="section" style="background:#222;">Welcome to Claya<div class="back-link" onclick="scrollToTop()">Return to Home</div></div>
-
-  <script src="script.js"></script>
 </body>
 </html>
