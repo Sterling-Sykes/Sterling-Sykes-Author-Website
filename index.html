@@ -83,17 +83,39 @@
       color: rgba(255,255,255,0.3);
       z-index: 1;
     }
-  </style>
+  
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  pointer-events: none;
+  z-index: 100;
+}
+.grid-overlay div {
+  border: 1px solid rgba(255,255,255,0.05);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.2);
+  padding: 2px;
+}
+
+</style>
 </head>
 <body>
-  <div class="solar-system">
+  <div class="solar-system"><div class="grid-overlay">
+<div>0,0</div><div>1,0</div><div>2,0</div><div>3,0</div><div>4,0</div><div>5,0</div><div>6,0</div><div>7,0</div><div>8,0</div><div>9,0</div><div>0,1</div><div>1,1</div><div>2,1</div><div>3,1</div><div>4,1</div><div>5,1</div><div>6,1</div><div>7,1</div><div>8,1</div><div>9,1</div><div>0,2</div><div>1,2</div><div>2,2</div><div>3,2</div><div>4,2</div><div>5,2</div><div>6,2</div><div>7,2</div><div>8,2</div><div>9,2</div><div>0,3</div><div>1,3</div><div>2,3</div><div>3,3</div><div>4,3</div><div>5,3</div><div>6,3</div><div>7,3</div><div>8,3</div><div>9,3</div><div>0,4</div><div>1,4</div><div>2,4</div><div>3,4</div><div>4,4</div><div>5,4</div><div>6,4</div><div>7,4</div><div>8,4</div><div>9,4</div><div>0,5</div><div>1,5</div><div>2,5</div><div>3,5</div><div>4,5</div><div>5,5</div><div>6,5</div><div>7,5</div><div>8,5</div><div>9,5</div><div>0,6</div><div>1,6</div><div>2,6</div><div>3,6</div><div>4,6</div><div>5,6</div><div>6,6</div><div>7,6</div><div>8,6</div><div>9,6</div><div>0,7</div><div>1,7</div><div>2,7</div><div>3,7</div><div>4,7</div><div>5,7</div><div>6,7</div><div>7,7</div><div>8,7</div><div>9,7</div><div>0,8</div><div>1,8</div><div>2,8</div><div>3,8</div><div>4,8</div><div>5,8</div><div>6,8</div><div>7,8</div><div>8,8</div><div>9,8</div><div>0,9</div><div>1,9</div><div>2,9</div><div>3,9</div><div>4,9</div><div>5,9</div><div>6,9</div><div>7,9</div><div>8,9</div><div>9,9</div>
+</div>
     <div class="grid"></div>
     <div class="sun">An author in the dark,<br/>bringing you into the light</div>
-    <div class="planet" data-name="Gastyen" style="width:100px; height:100px; background: green; left:80vw; top:70vh;"></div>
-    <div class="planet" data-name="Cleos" style="width:100px; height:100px; background: gold; left:80vw; top:20vh;"></div>
-    <div class="planet" data-name="Epio" style="width:100px; height:100px; background: lightblue; left:20vw; top:20vh;"></div>
-    <div class="planet" data-name="Claya" style="width:100px; height:100px; background: gray; left:10vw; top:30vh;"></div>
-    <div class="planet" data-name="Kallabor" style="width:100px; height:100px; background: crimson; left:20vw; top:70vh;"></div>
+    <div class="planet" data-name="Gastyen" style="transform: scale(2.1);" style="width:100px; height:100px; background: green; left:80vw; top:70vh;"></div>
+    <div class="planet" data-name="Cleos" style="transform: scale(1.8);" style="width:100px; height:100px; background: gold; left:80vw; top:20vh;"></div>
+    <div class="planet" data-name="Epio" style="left: 20vw; top: 20vh;" style="width:100px; height:100px; background: lightblue; left:20vw; top:20vh;"></div>
+    <div class="planet" data-name="Claya" style="transform: scale(1.15);" style="width:100px; height:100px; background: gray; left:10vw; top:30vh;"></div>
+    <div class="planet" data-name="Kallabor" style="transform: scale(2.5); left: calc(10%);" style="width:100px; height:100px; background: crimson; left:20vw; top:70vh;"></div>
   </div>
 </body>
 </html>
