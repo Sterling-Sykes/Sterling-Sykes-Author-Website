@@ -156,23 +156,26 @@
       transform: translate(-50%, -50%);
     }
 
-    .planet {
-      position: absolute;
-      border-radius: 50%;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      text-decoration: none;
-      cursor: pointer;
-      z-index: 3;
-      color: #fff;
-      font-size: 1.2em;
-      line-height: 1.2;
-      transition: transform 0.4s ease, box-shadow 0.3s ease;
-    }
+  .planet {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 3;
+  color: #fff;
+  font-size: 1.2em;
+  line-height: 1.2;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  will-change: transform;
+  backface-visibility: hidden;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* idle glow */
+}
 
     .planet img {
       position: absolute;
@@ -194,8 +197,9 @@
     }
 
     .planet:hover {
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    }
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.3); /* stronger hover glow */
+  z-index: 4;
+}
 
     .planet-1 { top: 12vh; left: 10vw; width: 300px; height: 300px; }
     .planet-2 { top: 10vh; left: 75vw; width: 310px; height: 310px; }
@@ -268,7 +272,7 @@
         <span class="planet-label">Sample Chapters</span>
       </a>
       <a href="#story" class="planet planet-4">
-        <img src="Kallabor no backround.png" alt="Short Story" />
+        <img src="Claya.png" alt="Short Story" />
         <span class="planet-label">Short Story</span>
       </a>
       <a href="#contact" class="planet planet-5">
