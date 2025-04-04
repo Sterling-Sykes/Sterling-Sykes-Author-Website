@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -134,17 +133,9 @@
     }
 
     @keyframes sunZoom {
-      0% {
-        transform: scale(0.01);
-      }
-
-      60% {
-        transform: scale(1.5);
-      }
-
-      100% {
-        transform: scale(1.5);
-      }
+      0% { transform: scale(0.01); }
+      60% { transform: scale(1.5); }
+      100% { transform: scale(1.5); }
     }
 
     #site {
@@ -168,63 +159,49 @@
     .planet {
       position: absolute;
       border-radius: 50%;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
-      font-size: 2em;
+      flex-direction: column;
       text-align: center;
       text-decoration: none;
       cursor: pointer;
-      line-height: normal;
-      overflow: hidden;
       z-index: 3;
+      color: #fff;
+      font-size: 1.2em;
+      line-height: 1.2;
       transition: transform 0.4s ease, box-shadow 0.3s ease;
+    }
+
+    .planet img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .planet-label {
+      position: relative;
+      z-index: 2;
+      padding: 0 10px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
     }
 
     .planet:hover {
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
 
-    .planet-1 {
-      top: 12vh;
-      left: 10vw;
-      background: #3399ff;
-      width: 300px;
-      height: 300px;
-    }
-
-    .planet-2 {
-      top: 10vh;
-      left: 75vw;
-      background: #cc33ff;
-      width: 310px;
-      height: 310px;
-    }
-
-    .planet-3 {
-      top: 50vh;
-      left: 80vw;
-      background: #888;
-      width: 230px;
-      height: 230px;
-    }
-
-    .planet-4 {
-      top: 30vh;
-      left: 90vw;
-      background: #999;
-      width: 230px;
-      height: 230px;
-    }
-
-    .planet-5 {
-      top: 60vh;
-      left: 15vw;
-      background: #66cc99;
-      width: 288px;
-      height: 288px;
-    }
+    .planet-1 { top: 12vh; left: 10vw; width: 300px; height: 300px; }
+    .planet-2 { top: 10vh; left: 75vw; width: 310px; height: 310px; }
+    .planet-3 { top: 50vh; left: 80vw; width: 230px; height: 230px; }
+    .planet-4 { top: 30vh; left: 90vw; width: 230px; height: 230px; }
+    .planet-5 { top: 60vh; left: 15vw; width: 288px; height: 288px; }
 
     section {
       height: 100vh;
@@ -251,35 +228,24 @@
     }
 
     @media (max-width: 768px) {
-      .sun {
-        width: 130px;
-        height: 130px;
-      }
-
-      .sun-label .tagline {
-        font-size: 1em;
-      }
-
-      .sun-label .author-name {
-        font-size: 0.8em;
-      }
-
-      .planet {
-        font-size: 1em;
-      }
+      .sun { width: 130px; height: 130px; }
+      .sun-label .tagline { font-size: 1em; }
+      .sun-label .author-name { font-size: 0.8em; }
+      .planet { font-size: 1em; }
     }
   </style>
 </head>
-
 <body>
   <div id="background"></div>
   <canvas id="stars-background"></canvas>
   <canvas id="stars-overlay"></canvas>
+
   <div id="intro" class="intro">
     <div class="sun">
       <div id="intro-text">An Author in the dark, bringing you into the light</div>
     </div>
   </div>
+
   <div id="site">
     <header>
       <div class="sun">
@@ -288,12 +254,29 @@
           <div class="author-name">By Sterling Sykes</div>
         </div>
       </div>
-      <a href="#blog" class="planet planet-1">Blog</a>
-      <a href="#gallery" class="planet planet-2">Gallery</a>
-      <a href="#chapter" class="planet planet-3">Sample Chapter</a>
-      <a href="#story" class="planet planet-4">Short Story</a>
-      <a href="#contact" class="planet planet-5">Contact</a>
+
+      <a href="#blog" class="planet planet-1">
+        <img src="Kallabor.jpg"
+        <span class="planet-label">Blog</span>
+      </a>
+      <a href="#gallery" class="planet planet-2">
+        <img src="your-image-url-2.jpg" 
+        <span class="planet-label">Gallery</span>
+      </a>
+      <a href="#chapter" class="planet planet-3">
+        <img src="your-image-url-3.jpg" 
+        <span class="planet-label">Sample Chapter</span>
+      </a>
+      <a href="#story" class="planet planet-4">
+        <img src="your-image-url-4.jpg" alt="Short Story" />
+        <span class="planet-label">Short Story</span>
+      </a>
+      <a href="#contact" class="planet planet-5">
+        <img src="your-image-url-5.jpg" alt="Contact" />
+        <span class="planet-label">Contact</span>
+      </a>
     </header>
+
     <section id="blog">
       <h2>Blog / Newsletter</h2>
       <p>Coming soon...</p><a href="#site" class="return-home">Return home</a>
@@ -315,6 +298,7 @@
       <p>Form here...</p><a href="#site" class="return-home">Return home</a>
     </section>
   </div>
+
   <script>
     setTimeout(() => {
       document.getElementById('intro').classList.add('show-text');
@@ -323,12 +307,12 @@
       document.body.classList.add('reveal');
       document.getElementById('intro').style.display = 'none';
     });
+
     const bgCanvas = document.getElementById('stars-background');
     const overlayCanvas = document.getElementById('stars-overlay');
     const bgCtx = bgCanvas.getContext('2d');
     const overlayCtx = overlayCanvas.getContext('2d');
-    let stars = [],
-      width, height;
+    let stars = [], width, height;
 
     function resizeCanvases() {
       width = window.innerWidth;
@@ -340,9 +324,7 @@
     }
 
     function createStars(count) {
-      return Array.from({
-        length: count
-      }, () => ({
+      return Array.from({ length: count }, () => ({
         x: Math.random() * width,
         y: Math.random() * height,
         radius: Math.random() * 1.3 + 0.2,
@@ -402,8 +384,7 @@
     function floatPlanetsOmni() {
       const planets = document.querySelectorAll('.planet');
       planets.forEach(planet => {
-        let offsetX = 0,
-          offsetY = 0;
+        let offsetX = 0, offsetY = 0;
         let dirX = (Math.random() - 0.5) * 0.05;
         let dirY = (Math.random() - 0.5) * 0.05;
 
@@ -423,8 +404,7 @@
 
     function floatSun() {
       const sun = document.querySelector('#site .sun');
-      let offsetX = 0,
-        offsetY = 0;
+      let offsetX = 0, offsetY = 0;
       let dirX = (Math.random() - 0.5) * 0.03;
       let dirY = (Math.random() - 0.5) * 0.03;
 
@@ -438,12 +418,13 @@
       }
       animate();
     }
+
     window.addEventListener('resize', () => {
       resizeCanvases();
-      stars = createStars(400); // ⭐ updated here
+      stars = createStars(400);
     });
     resizeCanvases();
-    stars = createStars(400); // ⭐ updated here
+    stars = createStars(400);
     drawStars();
     shootingStar();
     addParallaxEffect();
@@ -451,5 +432,4 @@
     floatSun();
   </script>
 </body>
-
 </html>
