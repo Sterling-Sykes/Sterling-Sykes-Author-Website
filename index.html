@@ -169,6 +169,9 @@
       position: relative;
       border-radius: 50%;
       overflow: hidden;
+      width: 280px;
+      height: 280px;
+      aspect-ratio: 1 / 1;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -184,18 +187,13 @@
       will-change: transform;
       backface-visibility: hidden;
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-      /* idle glow */
     }
 
     .planet img {
-      position: relative;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 50%;
-      z-index: 1;
       pointer-events: none;
     }
 
@@ -304,7 +302,6 @@
       background: rgba(255, 255, 255, 0.2);
     }
 
-
     .column {
       display: flex;
       flex-direction: column;
@@ -360,22 +357,24 @@
         width: 160px;
         height: 160px;
       }
+
       .sun {
         width: 220px !important;
         height: 220px !important;
       }
     }
-       .planet-flex-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 60px 40px;
-  flex-wrap: wrap;
-  min-height: 100vh;
-  box-sizing: border-box;
-  gap: 40px;
-}
+
+    .planet-flex-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px 40px;
+      flex-wrap: wrap;
+      min-height: 100vh;
+      box-sizing: border-box;
+      gap: 40px;
+    }
   </style>
 </head>
 
@@ -392,45 +391,45 @@
 
   <div id="site">
     <header>
-        <div class="planet-flex-wrapper">
-          <div class="column left-column">
-            <a href="#blog" class="planet">
-              <img src="Kallabor no backround.png" alt="Blog" />
-              <span class="planet-label">Blog</span>
-            </a>
-            <a href="#contact" class="planet">
-              <img src="Kallabor no backround.png" alt="Contact" />
-              <span class="planet-label">Contact Me</span>
-            </a>
-          </div>
+      <div class="planet-flex-wrapper">
+        <div class="column left-column">
+          <a href="#blog" class="planet">
+            <img src="Kallabor no backround.png" alt="Blog" />
+            <span class="planet-label">Blog</span>
+          </a>
+          <a href="#contact" class="planet">
+            <img src="Kallabor no backround.png" alt="Contact" />
+            <span class="planet-label">Contact Me</span>
+          </a>
+        </div>
 
-          <div class="sun">
-            <div class="sun-label">
-              <div class="tagline">Stories That Illuminate</div>
-              <div class="author-name">By Sterling Sykes</div>
-            </div>
-          </div>
-
-          <div class="column right-column gallery-system">
-            <div class="gallery-core">
-              <a href="#gallery" class="planet">
-                <img src="Kallabor no backround.png" alt="Gallery" />
-                <span class="planet-label">Gallery</span>
-              </a>
-            </div>
-            <div class="gallery-moons">
-              <a href="#chapter" class="planet moon">
-                <img src="Kallabor no backround.png" alt="Sample Chapters" />
-                <span class="planet-label">Sample Chapters</span>
-              </a>
-              <a href="#story" class="planet moon">
-                <img src="Claya.png" alt="Short Story" />
-                <span class="planet-label">Short Story</span>
-              </a>
-            </div>
+        <div class="sun">
+          <div class="sun-label">
+            <div class="tagline">Stories That Illuminate</div>
+            <div class="author-name">By Sterling Sykes</div>
           </div>
         </div>
-        <a href="#site" class="return-to-home">⬆️ Home</a>
+
+        <div class="column right-column gallery-system">
+          <div class="gallery-core">
+            <a href="#gallery" class="planet">
+              <img src="Kallabor no backround.png" alt="Gallery" />
+              <span class="planet-label">Gallery</span>
+            </a>
+          </div>
+          <div class="gallery-moons">
+            <a href="#chapter" class="planet moon">
+              <img src="Kallabor no backround.png" alt="Sample Chapters" />
+              <span class="planet-label">Sample Chapters</span>
+            </a>
+            <a href="#story" class="planet moon">
+              <img src="Claya.png" alt="Short Story" />
+              <span class="planet-label">Short Story</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <a href="#site" class="return-to-home">⬆️ Home</a>
     </header>
 
     <section id="blog">
