@@ -57,8 +57,8 @@
 
     .sun {
       background: radial-gradient(circle, #ffcc00, #ff9900);
-      width: 300px;
-      height: 300px;
+      width: 430px;
+      height: 430px;
       border-radius: 50%;
       box-shadow: 0 0 10px 5px rgba(255, 204, 0, 0.3);
       display: flex;
@@ -68,6 +68,7 @@
       padding: 20px;
       box-sizing: border-box;
       z-index: 3;
+      transition: transform 0.3s ease-in-out;
     }
 
     .sun-label {
@@ -171,58 +172,58 @@
       align-items: center;
       justify-content: center;
       color: #fff;
-      font-size: 1em;
+      font-size: 2em;
       text-align: center;
       text-decoration: none;
       cursor: pointer;
       line-height: normal;
       overflow: hidden;
       z-index: 3;
-      transition: transform 0.3s;
+      transition: transform 0.4s ease, box-shadow 0.3s ease;
     }
 
     .planet:hover {
-      transform: scale(1.7);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
 
     .planet-1 {
       top: 12vh;
       left: 10vw;
       background: #3399ff;
-      width: 202px;
-      height: 202px;
+      width: 300px;
+      height: 300px;
     }
 
     .planet-2 {
       top: 10vh;
       left: 75vw;
       background: #cc33ff;
-      width: 173px;
-      height: 173px;
+      width: 310px;
+      height: 310px;
     }
 
     .planet-3 {
       top: 50vh;
       left: 80vw;
       background: #888;
-      width: 115px;
-      height: 115px;
+      width: 230px;
+      height: 230px;
     }
 
     .planet-4 {
-      top: 40vh;
+      top: 30vh;
       left: 90vw;
       background: #999;
-      width: 115px;
-      height: 115px;
+      width: 230px;
+      height: 230px;
     }
 
     .planet-5 {
-      top: 65vh;
+      top: 60vh;
       left: 15vw;
       background: #66cc99;
-      width: 144px;
-      height: 144px;
+      width: 288px;
+      height: 288px;
     }
 
     section {
@@ -264,7 +265,7 @@
       }
 
       .planet {
-        font-size: 0.7em;
+        font-size: 1em;
       }
     }
   </style>
@@ -274,13 +275,11 @@
   <div id="background"></div>
   <canvas id="stars-background"></canvas>
   <canvas id="stars-overlay"></canvas>
-
   <div id="intro" class="intro">
     <div class="sun">
       <div id="intro-text">An Author in the dark, bringing you into the light</div>
     </div>
   </div>
-
   <div id="site">
     <header>
       <div class="sun">
@@ -289,14 +288,12 @@
           <div class="author-name">By Sterling Sykes</div>
         </div>
       </div>
-
       <a href="#blog" class="planet planet-1">Blog</a>
       <a href="#gallery" class="planet planet-2">Gallery</a>
       <a href="#chapter" class="planet planet-3">Sample Chapter</a>
       <a href="#story" class="planet planet-4">Short Story</a>
       <a href="#contact" class="planet planet-5">Contact</a>
     </header>
-
     <section id="blog">
       <h2>Blog / Newsletter</h2>
       <p>Coming soon...</p><a href="#site" class="return-home">Return home</a>
@@ -318,7 +315,6 @@
       <p>Form here...</p><a href="#site" class="return-home">Return home</a>
     </section>
   </div>
-
   <script>
     setTimeout(() => {
       document.getElementById('intro').classList.add('show-text');
@@ -408,30 +404,51 @@
       planets.forEach(planet => {
         let offsetX = 0,
           offsetY = 0;
-        let dirX = (Math.random() - 0.5) * 0.02;
-        let dirY = (Math.random() - 0.5) * 0.02;
+        let dirX = (Math.random() - 0.5) * 0.05;
+        let dirY = (Math.random() - 0.5) * 0.05;
 
         function animate() {
           offsetX += dirX;
           offsetY += dirY;
           if (offsetX > 5 || offsetX < -5) dirX *= -1;
           if (offsetY > 5 || offsetY < -5) dirY *= -1;
-          planet.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+          const isHovered = planet.matches(':hover');
+          const scale = isHovered ? 1.1 : 1;
+          planet.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
           requestAnimationFrame(animate);
         }
         animate();
       });
     }
+
+    function floatSun() {
+      const sun = document.querySelector('#site .sun');
+      let offsetX = 0,
+        offsetY = 0;
+      let dirX = (Math.random() - 0.5) * 0.03;
+      let dirY = (Math.random() - 0.5) * 0.03;
+
+      function animate() {
+        offsetX += dirX;
+        offsetY += dirY;
+        if (offsetX > 2 || offsetX < -2) dirX *= -1;
+        if (offsetY > 2 || offsetY < -2) dirY *= -1;
+        sun.style.transform = `translate(-50%, -50%) translate(${offsetX}px, ${offsetY}px)`;
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
     window.addEventListener('resize', () => {
       resizeCanvases();
-      stars = createStars(100);
+      stars = createStars(400); // ⭐ updated here
     });
     resizeCanvases();
-    stars = createStars(100);
+    stars = createStars(400); // ⭐ updated here
     drawStars();
     shootingStar();
     addParallaxEffect();
     floatPlanetsOmni();
+    floatSun();
   </script>
 </body>
 
