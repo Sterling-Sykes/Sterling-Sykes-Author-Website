@@ -1,100 +1,419 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="en" >
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Sterling Sykes | Worlds Beyond</title>
-<style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: black;
-      font-family: 'Garamond', serif;
-      color: white;
-      overflow-x: hidden;
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sterling Sykes</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
     }
 
-    .solar-system {
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: #000 url('background.jpg') repeat-y center top;
+      background-size: auto;
+      overflow-x: hidden;
+      color: #fff;
+    }
+
+    #stars-background,
+    #stars-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      transition: transform 0.5s ease;
+    }
+
+    #stars-background {
+      z-index: -1;
+    }
+
+    #stars-overlay {
+      z-index: 2;
+    }
+
+    header {
       position: relative;
-      width: 100vw;
       height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      text-align: center;
+      overflow: hidden;
     }
 
     .sun {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(circle, gold, orange);
+      background: radial-gradient(circle, #ffcc00, #ff9900);
+      width: 300px;
+      height: 300px;
       border-radius: 50%;
-      transform: translate(-50%, -50%);
-      box-shadow: 0 0 50px gold;
+      box-shadow: 0 0 10px 5px rgba(255, 204, 0, 0.3);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      font-size: 1.3rem;
-      text-shadow: 1px 1px 4px black;
+      padding: 20px;
+      box-sizing: border-box;
+      z-index: 2;
+    }
+
+    .sun-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #000;
+      font-family: 'Georgia', serif;
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
+
+    body.reveal .sun-label {
+      opacity: 1;
+    }
+
+    .tagline {
+      font-size: 1.4em;
+      font-weight: bold;
+    }
+
+    .author-name {
+      font-size: 1em;
+      font-style: italic;
+      opacity: 0.7;
+      margin-top: 5px;
+    }
+
+    #intro {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    #intro .sun {
+      transform: scale(0.01);
+      animation: sunZoom 5s ease-in-out forwards;
+      position: relative;
+    }
+
+    #intro-text {
+      position: absolute;
+      color: #fff;
+      font-size: 1.2em;
+      text-align: center;
+      max-width: 80%;
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
+
+    #intro.show-text #intro-text {
+      opacity: 1;
+    }
+
+    @keyframes sunZoom {
+      0% {
+        transform: scale(0.01);
+      }
+
+      60% {
+        transform: scale(1.5);
+      }
+
+      100% {
+        transform: scale(1.5);
+      }
+    }
+
+    #site {
+      opacity: 0;
+      transform: scale(1.05);
+      transition: all 2s ease;
+    }
+
+    body.reveal #site {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    #site .sun {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
 
     .planet {
       position: absolute;
       border-radius: 50%;
-      text-align: center;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.9rem;
-      box-shadow: 0 0 10px rgba(255,255,255,0.3);
-      transition: transform 0.3s ease;
+      color: #fff;
+      font-size: 1em;
+      text-align: center;
+      text-decoration: none;
+      transition: transform 0.3s;
+      cursor: pointer;
+      line-height: normal;
+      overflow: hidden;
     }
 
     .planet:hover {
       transform: scale(1.1);
     }
 
-    .planet::after {
-      content: attr(data-name);
-      position: absolute;
-      top: 110%;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.8rem;
-      text-shadow: 1px 1px 2px black;
+    .planet-1 {
+      top: 12vh;
+      left: 10vw;
+      background: #3399ff;
+      width: 202px;
+      height: 202px;
     }
 
-    .grid {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-image: linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
-      background-size: calc(100vw / 10) calc(100vh / 10);
-      z-index: 0;
+    .planet-2 {
+      top: 10vh;
+      left: 75vw;
+      background: #cc33ff;
+      width: 173px;
+      height: 173px;
     }
 
-    .coordinate {
+    .planet-3 {
+      top: 50vh;
+      left: 80vw;
+      background: #888;
+      width: 115px;
+      height: 115px;
+    }
+
+    .planet-4 {
+      top: 40vh;
+      left: 90vw;
+      background: #999;
+      width: 115px;
+      height: 115px;
+    }
+
+    .planet-5 {
+      top: 65vh;
+      left: 15vw;
+      background: #66cc99;
+      width: 144px;
+      height: 144px;
+    }
+
+    section {
+      height: 100vh;
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .return-home {
       position: absolute;
-      font-size: 0.6rem;
-      color: rgba(255,255,255,0.3);
-      z-index: 1;
+      bottom: 15px;
+      right: 20px;
+      color: #aaa;
+      font-size: 0.9em;
+      text-decoration: none;
+      opacity: 0.6;
+      transition: opacity 0.3s, color 0.3s;
+    }
+
+    .return-home:hover {
+      opacity: 1;
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .sun {
+        width: 130px;
+        height: 130px;
+      }
+
+      .sun-label .tagline {
+        font-size: 1em;
+      }
+
+      .sun-label .author-name {
+        font-size: 0.8em;
+      }
+
+      .planet {
+        font-size: 0.7em;
+      }
     }
   </style>
 </head>
+
 <body>
-<div class="solar-system">
-<div class="grid"></div>
-<div class="sun">An author in the dark,<br/>bringing you into the light</div>
-<div class="planet" data-name="Gastyen" style="width: 140px; height: 140px; background: green; left: 80vw; top: 70vh"></div>
-<div class="planet" data-name="Cleos" style="width: 130px; height: 130px; background: gold; left: 80vw; top: 20vh"></div>
-<div class="planet" data-name="Epio" style="width:100px; height:100px; background: lightblue; left:20vw; top:20vh;"></div>
-<div class="planet" data-name="Claya" style="width:100px; height:100px; background: gray; left:10vw; top:30vh;"></div>
-<div class="planet" data-name="Kallabor" style="width: 227px; height: 227px; background: crimson; left: 5%; top: 65%"></div>
-</div>
+  <canvas id="stars-background"></canvas>
+  <canvas id="stars-overlay"></canvas>
+
+  <div id="intro" class="intro">
+    <div class="sun">
+      <div id="intro-text">An Author in the dark, bringing you into the light</div>
+    </div>
+  </div>
+
+  <div id="site">
+    <header>
+      <div class="sun">
+        <div class="sun-label">
+          <div class="tagline">Stories That Illuminate</div>
+          <div class="author-name">By Sterling Sykes</div>
+        </div>
+      </div>
+
+      <a href="#blog" class="planet planet-1">Blog</a>
+      <a href="#gallery" class="planet planet-2">Gallery</a>
+      <a href="#chapter" class="planet planet-3">Sample Chapter</a>
+      <a href="#story" class="planet planet-4">Short Story</a>
+      <a href="#contact" class="planet planet-5">Contact</a>
+    </header>
+
+    <section id="blog">
+      <h2>Blog / Newsletter</h2>
+      <p>Coming soon...</p><a href="#site" class="return-home">Return home</a>
+    </section>
+    <section id="gallery">
+      <h2>Gallery</h2>
+      <p>Coming soon...</p><a href="#site" class="return-home">Return home</a>
+    </section>
+    <section id="chapter">
+      <h2>Sample Chapter</h2>
+      <p>Coming soon...</p><a href="#site" class="return-home">Return home</a>
+    </section>
+    <section id="story">
+      <h2>Short Story</h2>
+      <p>Coming soon...</p><a href="#site" class="return-home">Return home</a>
+    </section>
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <p>Form here...</p><a href="#site" class="return-home">Return home</a>
+    </section>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById('intro').classList.add('show-text');
+    }, 2000);
+    document.getElementById('intro').addEventListener('click', () => {
+      document.body.classList.add('reveal');
+      document.getElementById('intro').style.display = 'none';
+    });
+    const bgCanvas = document.getElementById('stars-background');
+    const overlayCanvas = document.getElementById('stars-overlay');
+    const bgCtx = bgCanvas.getContext('2d');
+    const overlayCtx = overlayCanvas.getContext('2d');
+    let stars = [],
+      width, height;
+
+    function resizeCanvases() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      bgCanvas.width = width;
+      bgCanvas.height = height;
+      overlayCanvas.width = width;
+      overlayCanvas.height = height;
+    }
+
+    function createStars(count) {
+      return Array.from({
+        length: count
+      }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        radius: Math.random() * 1.3 + 0.2,
+        alpha: Math.random(),
+        pulse: Math.random() * 0.002 + 0.001 // 👈 slower shimmer
+      }));
+    }
+
+    function drawStars() {
+      bgCtx.clearRect(0, 0, width, height);
+      for (let s of stars) {
+        s.alpha += s.pulse;
+        if (s.alpha >= 1 || s.alpha <= 0.2) s.pulse = -s.pulse;
+        bgCtx.fillStyle = `rgba(255, 255, 255, ${s.alpha})`;
+        bgCtx.beginPath();
+        bgCtx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+        bgCtx.fill();
+      }
+      requestAnimationFrame(drawStars);
+    }
+
+    function shootingStar() {
+      const x = Math.random() * width * 0.8 + width * 0.1;
+      const y = Math.random() * height * 0.5;
+      const length = 150;
+      const angle = Math.random() * 0.2 - 0.1;
+      let opacity = 1;
+
+      function draw() {
+        overlayCtx.clearRect(0, 0, width, height);
+        overlayCtx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
+        overlayCtx.lineWidth = 2;
+        overlayCtx.beginPath();
+        overlayCtx.moveTo(x, y);
+        overlayCtx.lineTo(x + length * Math.cos(angle), y + length * Math.sin(angle));
+        overlayCtx.stroke();
+        opacity -= 0.02;
+        if (opacity > 0) requestAnimationFrame(draw);
+        else overlayCtx.clearRect(0, 0, width, height);
+      }
+      draw();
+      setTimeout(shootingStar, Math.random() * 10000 + 15000);
+    }
+
+    function addParallaxEffect() {
+      const planets = document.querySelectorAll('.planet');
+      planets.forEach(p => {
+        p.addEventListener('mouseenter', () => {
+          bgCanvas.style.transform = 'translateY(-2px) scale(1.01)';
+        });
+        p.addEventListener('mouseleave', () => {
+          bgCanvas.style.transform = 'translateY(0) scale(1)';
+        });
+      });
+    }
+    window.addEventListener('resize', () => {
+      resizeCanvases();
+      stars = createStars(100);
+    });
+    resizeCanvases();
+    stars = createStars(100);
+    drawStars();
+    shootingStar();
+    addParallaxEffect();
+  </script>
+</body>
+
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
 </body>
 </html>
