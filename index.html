@@ -166,7 +166,7 @@
     }
 
     .planet {
-      position: absolute;
+      position: relative;
       border-radius: 50%;
       overflow: hidden;
       display: flex;
@@ -188,7 +188,7 @@
     }
 
     .planet img {
-      position: absolute;
+      position: relative;
       top: 0;
       left: 0;
       width: 100%;
@@ -210,41 +210,6 @@
       box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
       /* stronger hover glow */
       z-index: 4;
-    }
-
-    .planet-1 {
-      top: 12vh;
-      left: 10vw;
-      width: 300px;
-      height: 300px;
-    }
-
-    .planet-2 {
-      top: 10vh;
-      left: 75vw;
-      width: 310px;
-      height: 310px;
-    }
-
-    .planet-3 {
-      top: 50vh;
-      left: 80vw;
-      width: 230px;
-      height: 230px;
-    }
-
-    .planet-4 {
-      top: 30vh;
-      left: 90vw;
-      width: 230px;
-      height: 230px;
-    }
-
-    .planet-5 {
-      top: 60vh;
-      left: 15vw;
-      width: 288px;
-      height: 288px;
     }
 
     section {
@@ -339,17 +304,6 @@
       background: rgba(255, 255, 255, 0.2);
     }
 
-    .planet-flex-wrapper {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      padding: 60px 40px;
-      flex-wrap: wrap;
-      min-height: 100vh;
-      box-sizing: border-box;
-      gap: 40px;
-    }
 
     .column {
       display: flex;
@@ -411,6 +365,17 @@
         height: 220px !important;
       }
     }
+       .planet-flex-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 40px;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  box-sizing: border-box;
+  gap: 40px;
+}
   </style>
 </head>
 
@@ -427,7 +392,6 @@
 
   <div id="site">
     <header>
-      <header>
         <div class="planet-flex-wrapper">
           <div class="column left-column">
             <a href="#blog" class="planet">
@@ -467,8 +431,6 @@
           </div>
         </div>
         <a href="#site" class="return-to-home">⬆️ Home</a>
-      </header>
-
     </header>
 
     <section id="blog">
