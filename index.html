@@ -51,15 +51,14 @@
     header {
       position: relative;
       min-height: 120vh;
-      /* More room for planets */
-      padding-top: 40px;
+      padding-top: 20px;
       padding-bottom: 60px;
     }
 
     .sun {
       background: radial-gradient(circle, #ffcc00, #ff9900);
-      width: 360px;
-      height: 360px;
+      width: 420px;
+      height: 420px;
       border-radius: 50%;
       box-shadow: 0 0 10px 5px rgba(255, 204, 0, 0.3);
       display: flex;
@@ -170,8 +169,8 @@
       position: relative;
       border-radius: 50%;
       overflow: hidden;
-      width: 325px;
-      height: 325px;
+      width: 380px;
+      height: 380px;
       aspect-ratio: 1 / 1;
       display: flex;
       align-items: center;
@@ -196,10 +195,17 @@
       object-fit: cover;
       border-radius: 50%;
       pointer-events: none;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
     .planet-label {
-      position: relative;
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
       z-index: 2;
       padding: 0 10px;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
@@ -364,6 +370,7 @@
       .sun {
         width: 220px !important;
         height: 220px !important;
+        margin-bottom: 40px;
       }
     }
 
@@ -382,15 +389,6 @@
     .planet-flex-wrapper {
       gap: 60px;
       margin-top: 40px;
-    }
-
-    /* Stagger Blog & Contact Me positions */
-    .column.left-column a:first-child {
-      transform: translateX(-20px);
-    }
-
-    .column.left-column a:last-child {
-      transform: translateX(20px);
     }
   </style>
 </head>
