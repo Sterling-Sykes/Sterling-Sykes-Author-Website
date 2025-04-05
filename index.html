@@ -55,44 +55,63 @@
       padding-bottom: 20px;
     }
 
-.sun {
-  width: 420px;
-  height: 420px;
-  max-width: 90vw;
-  max-height: 90vw;
-  border-radius: 50%;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  z-index: 3;
-  background: none !important;
-  box-shadow: none !important;
-  animation: none !important;
-}
+    .sun {
+      width: 420px;
+      height: 420px;
+      max-width: 90vw;
+      max-height: 90vw;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      z-index: 3;
+      background: none !important;
+      box-shadow: none !important;
+      animation: none !important;
+    }
 
+    .sun-floater {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      will-change: transform;
+      transform: translate3d(0, 0, 0);
+      /* kick in GPU layer */
+    }
 
-.sun-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
-}
-
+    .sun-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
 
     .sun-label {
+      position: absolute;
+      inset: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      color: #000;
-      font-family: 'Georgia', serif;
+      color: #fff;
+      pointer-events: none;
       opacity: 0;
       transition: opacity 2s ease;
+    }
+
+    .sun-img-wrapper {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
     }
 
     body.reveal .sun-label {
@@ -124,29 +143,32 @@
       justify-content: center;
       flex-direction: column;
     }
-#intro .sun {
-  transform: scale(0.01);
-  animation: introZoom 5s ease-in-out forwards;
-  position: relative;
-  background: none !important;
-  box-shadow: none !important;
-}
 
+    #intro .sun {
+      position: relative;
+    }
 
-@keyframes introZoom {
-  0% {
-    transform: scale(0.01);
-    opacity: 0;
-  }
-  60% {
-    transform: scale(1.5);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1.5);
-    opacity: 1;
-  }
-}
+    #intro .sun-img {
+      transform: scale(0.01);
+      animation: introZoom 5s ease-in-out forwards;
+    }
+
+    @keyframes introZoom {
+      0% {
+        transform: scale(0.01);
+        opacity: 0;
+      }
+
+      60% {
+        transform: scale(1.5);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1.5);
+        opacity: 1;
+      }
+    }
 
     #intro-text {
       position: absolute;
@@ -256,21 +278,12 @@
       z-index: 2;
     }
 
-  @media (max-width: 768px) {
-  .sun {
-    width: 220px !important;
-    height: 220px !important;
-    margin-bottom: 40px;
-  }
-
-  .sun-label .tagline {
-    font-size: 1em;
-  }
-
-  .sun-label .author-name {
-    font-size: 0.8em;
-  }
-}
+    @media (max-width: 768px) {
+      .sun {
+        width: 220px !important;
+        height: 220px !important;
+        margin-bottom: 40px;
+      }
 
       .sun-label .tagline {
         font-size: 1em;
@@ -279,10 +292,19 @@
       .sun-label .author-name {
         font-size: 0.8em;
       }
+    }
 
-      .planet {
-        font-size: 1em;
-      }
+    .sun-label .tagline {
+      font-size: 1em;
+    }
+
+    .sun-label .author-name {
+      font-size: 0.8em;
+    }
+
+    .planet {
+      font-size: 1em;
+    }
     }
 
     .gallery-system {
@@ -397,7 +419,6 @@
         height: 220px !important;
         margin-bottom: 40px;
       }
-      
     }
 
     .planet-flex-wrapper {
@@ -434,23 +455,29 @@
       margin-top: 500px;
       margin-right: -20px;
     }
-@keyframes pulseGlow {
-  0% {
-    box-shadow: 0 0 30px 10px rgba(255, 204, 0, 0.25);
-  }
-  25% {
-    box-shadow: 0 0 50px 20px rgba(255, 204, 0, 0.35);
-  }
-  50% {
-    box-shadow: 0 0 70px 35px rgba(255, 204, 0, 0.5);
-  }
-  75% {
-    box-shadow: 0 0 50px 20px rgba(255, 204, 0, 0.35);
-  }
-  100% {
-    box-shadow: 0 0 30px 10px rgba(255, 204, 0, 0.25);
-  }
-}
+
+    @keyframes pulseGlow {
+      0% {
+        box-shadow: 0 0 30px 10px rgba(255, 204, 0, 0.25);
+      }
+
+      25% {
+        box-shadow: 0 0 50px 20px rgba(255, 204, 0, 0.35);
+      }
+
+      50% {
+        box-shadow: 0 0 70px 35px rgba(255, 204, 0, 0.5);
+      }
+
+      75% {
+        box-shadow: 0 0 50px 20px rgba(255, 204, 0, 0.35);
+      }
+
+      100% {
+        box-shadow: 0 0 30px 10px rgba(255, 204, 0, 0.25);
+      }
+    }
+
     @media (max-width: 768px) {
       .planet-duo {
         flex-direction: column;
@@ -462,13 +489,14 @@
         margin: 0;
       }
     }
+
     .sun-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
-}
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
   </style>
 </head>
 
@@ -499,14 +527,19 @@
           </div>
         </div>
 
-      <div class="sun">
-  <img src="KinKaz.png" alt="Sun" class="sun-img" />
-  <div class="sun-label">
-    <div class="tagline">Stories That Illuminate</div>
-    <div class="author-name">By Sterling Sykes</div>
-  </div>
-</div>
-
+        <a href="#about" class="sun-link">
+          <div class="sun">
+            <div class="sun-floater">
+              <div class="sun-img-wrapper">
+                <img src="KinKaz.png" alt="Sun" class="sun-img" />
+              </div>
+              <div class="sun-label">
+                <div class="tagline">Stories That Illuminate</div>
+                <div class="author-name">By Sterling Sykes</div>
+              </div>
+            </div>
+          </div>
+        </a>
 
         <div class="column right-column gallery-system">
           <div class="gallery-core">
@@ -665,18 +698,17 @@
     }
 
     function floatSun() {
-      const sun = document.querySelector('#site .sun');
-      let offsetX = 0,
-        offsetY = 0;
-      let dirX = (Math.random() - 0.5) * 0.03;
-      let dirY = (Math.random() - 0.5) * 0.03;
+      const sunFloater = document.querySelector('#site .sun .sun-floater');
+      sunFloater.style.willChange = 'transform'; // request GPU layer
+      sunFloater.style.transform = 'translate3d(0, 0, 0)'; // force GPU usage
+      let angle = 0;
 
       function animate() {
-        offsetX += dirX;
-        offsetY += dirY;
-        if (offsetX > 2 || offsetX < -2) dirX *= -1;
-        if (offsetY > 2 || offsetY < -2) dirY *= -1;
-        sun.style.transform = `translate(-50%, -50%) translate(${offsetX}px, ${offsetY}px)`;
+        angle += 0.0035; // slower & smoother
+        const offsetX = Math.sin(angle) * 2;
+        const offsetY = Math.cos(angle) * 2;
+        // use translate3d for smoother motion
+        sunFloater.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0)`;
         requestAnimationFrame(animate);
       }
       animate();
