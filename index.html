@@ -50,38 +50,31 @@
 
     header {
       position: relative;
-      min-height: 100vh;
+      min-height: 120vh;
       padding-top: 20px;
-      padding-bottom: 20px;
+      padding-bottom: 60px;
     }
 
-    .sun {
-      width: 420px;
-      height: 420px;
-      border-radius: 50%;
-
-      .sun {
-        background: radial-gradient(circle, rgba(255, 204, 0, 0.6), rgba(255, 153, 0, 0.8)),
-          url('KinKazarus.png') center center / cover no-repeat;
-        background-size: cover;
-        /* Ensures the background image covers the .sun element */
-        width: 420px;
-        height: 420px;
-        border-radius: 50%;
-      }
-
-      box-shadow: 0 0 50px 15px rgba(255, 204, 0, 0.4),
-      0 0 80px 30px rgba(255, 255, 200, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-      box-sizing: border-box;
-      z-index: 3;
-      transition: transform 0.3s ease-in-out;
-      animation: pulseGlow 30s infinite ease-in-out;
-    }
+   .sun {
+  background: 
+    radial-gradient(circle, rgba(255,204,0,0.6), rgba(255,153,0,0.8)),
+    url('KinKazarus.jpg') center center / cover no-repeat;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  box-shadow:
+  0 0 50px 15px rgba(255, 204, 0, 0.4),
+  0 0 80px 30px rgba(255, 255, 200, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 3;
+  transition: transform 0.3s ease-in-out;
+  animation: pulseGlow 30s infinite ease-in-out;
+}
 
     .sun-label {
       display: flex;
@@ -125,28 +118,25 @@
       flex-direction: column;
     }
 
-    #intro .sun {
-      transform: scale(0.01);
-      animation: introZoom 5s ease-in-out forwards;
-      position: relative;
-    }
-
-    @keyframes introZoom {
-      0% {
-        transform: scale(0.01);
-        opacity: 0;
-      }
-
-      60% {
-        transform: scale(1.5);
-        opacity: 1;
-      }
-
-      100% {
-        transform: scale(1.5);
-        opacity: 1;
-      }
-    }
+  #intro .sun {
+  transform: scale(0.01);
+  animation: introZoom 5s ease-in-out forwards;
+  position: relative;
+}
+@keyframes introZoom {
+  0% {
+    transform: scale(0.01);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
 
     #intro-text {
       position: absolute;
@@ -387,6 +377,7 @@
         height: 220px !important;
         margin-bottom: 40px;
       }
+      
     }
 
     .planet-flex-wrapper {
@@ -416,46 +407,41 @@
 
     .planet-duo a:nth-child(1) {
       margin-top: -400px;
-      margin-right: 0;
+      margin-right: -px;
+    }
 
+    .planet-duo a:nth-child(2) {
+      margin-top: 500px;
+      margin-right: -20px;
+    }
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 30px 10px rgba(255, 204, 0, 0.25);
+  }
+  25% {
+    box-shadow: 0 0 50px 20px rgba(255, 204, 0, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 70px 35px rgba(255, 204, 0, 0.5);
+  }
+  75% {
+    box-shadow: 0 0 50px 20px rgba(255, 204, 0, 0.35);
+  }
+  100% {
+    box-shadow: 0 0 30px 10px rgba(255, 204, 0, 0.25);
+  }
+}
+    @media (max-width: 768px) {
+      .planet-duo {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .planet-duo a:nth-child(1),
       .planet-duo a:nth-child(2) {
-        margin-top: 500px;
-        margin-right: -20px;
+        margin: 0;
       }
-
-      @keyframes pulseGlow {
-        0% {
-          box-shadow: 0 0 30px 10px rgba(255, 204, 0, 0.25);
-        }
-
-        25% {
-          box-shadow: 0 0 50px 20px rgba(255, 204, 0, 0.35);
-        }
-
-        50% {
-          box-shadow: 0 0 70px 35px rgba(255, 204, 0, 0.5);
-        }
-
-        75% {
-          box-shadow: 0 0 50px 20px rgba(255, 204, 0, 0.35);
-        }
-
-        100% {
-          box-shadow: 0 0 30px 10px rgba(255, 204, 0, 0.25);
-        }
-      }
-
-      @media (max-width: 768px) {
-        .planet-duo {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .planet-duo a:nth-child(1),
-        .planet-duo a:nth-child(2) {
-          margin: 0;
-        }
-      }
+    }
   </style>
 </head>
 
@@ -498,7 +484,7 @@
         <div class="column right-column gallery-system">
           <div class="gallery-core">
             <a href="#gallery" class="planet">
-              <img src="Cleos.png" alt="Gallery" />
+              <img src="Kallabor no backround.png" alt="Gallery" />
               <span class="planet-label">Gallery</span>
             </a>
           </div>
