@@ -187,6 +187,7 @@
       will-change: transform;
       backface-visibility: hidden;
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      padding: 0;
     }
 
     .planet img {
@@ -198,6 +199,7 @@
       position: absolute;
       top: 0;
       left: 0;
+      padding: 0;
     }
 
     .planet-label {
@@ -390,6 +392,38 @@
       gap: 60px;
       margin-top: 40px;
     }
+
+   .planet-duo {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.planet-duo a:nth-child(1) {
+  margin-top: 400px;
+  margin-right: -20px;
+}
+
+
+.planet-duo a:nth-child(2) {
+  margin-bottom: 500px;
+  margin-left: -20px;
+}
+
+@media (max-width: 768px) {
+  .planet-duo {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .planet-duo a:nth-child(1),
+  .planet-duo a:nth-child(2) {
+    margin: 0;
+  }
+}
+
   </style>
 </head>
 
@@ -407,16 +441,19 @@
   <div id="site">
     <header>
       <div class="planet-flex-wrapper">
-        <div class="column left-column">
-          <a href="#blog" class="planet">
-            <img src="Gastyen.png" alt="Blog" />
-            <span class="planet-label">Blog</span>
-          </a>
-          <a href="#contact" class="planet">
-            <img src="Kallabor no backround.png" alt="Contact" />
-            <span class="planet-label">Contact Me</span>
-          </a>
-        </div>
+        <div class="left-column">
+  <div class="planet-duo">
+    <a href="#blog" class="planet">
+      <img src="Gastyen.png" alt="Blog" />
+      <span class="planet-label">Blog</span>
+    </a>
+    <a href="#contact" class="planet">
+      <img src="Kallabor no backround.png" alt="Contact" />
+      <span class="planet-label">Contact Me</span>
+    </a>
+  </div>
+</div>
+
 
         <div class="sun">
           <div class="sun-label">
@@ -428,13 +465,13 @@
         <div class="column right-column gallery-system">
           <div class="gallery-core">
             <a href="#gallery" class="planet">
-              <img src="Cleos.png" alt="Gallery" />
+              <img src="Kallabor no backround.png" alt="Gallery" />
               <span class="planet-label">Gallery</span>
             </a>
           </div>
           <div class="gallery-moons">
             <a href="#chapter" class="planet moon">
-              <img src="Epio.png" alt="Sample Chapters" />
+              <img src="Kallabor no backround.png" alt="Sample Chapters" />
               <span class="planet-label">Sample Chapters</span>
             </a>
             <a href="#story" class="planet moon">
