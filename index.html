@@ -55,72 +55,16 @@
       padding-bottom: 60px;
     }
 
-   .sun {
-  background: 
-    radial-gradient(circle, rgba(255,204,0,0.6), rgba(255,153,0,0.8)),
-    url('<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sterling Sykes</title>
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      overflow-x: hidden;
-      color: #fff;
-      background: #000;
-    }
-
-    #background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('background.jpeg') repeat-y center top;
-      background-size: cover;
-      z-index: 0;
-    }
-
-    #stars-background,
-    #stars-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      transition: transform 0.5s ease;
-    }
-
-    #stars-background {
-      z-index: 1;
-    }
-
-    #stars-overlay {
-      z-index: 2;
-    }
-
-    header {
-      position: relative;
-      min-height: 120vh;
-      padding-top: 20px;
-      padding-bottom: 60px;
-    }
-
     .sun {
-      background: radial-gradient(circle, #ffcc00, #ff9900);
+      background:
+        radial-gradient(circle, rgba(255, 204, 0, 0.6), rgba(255, 153, 0, 0.8)),
+        url('KinKazarus.jpg') center center / cover no-repeat;
       width: 420px;
       height: 420px;
       border-radius: 50%;
-      box-shadow: 0 0 10px 5px rgba(255, 204, 0, 0.3);
+      box-shadow:
+        0 0 50px 15px rgba(255, 204, 0, 0.4),
+        0 0 80px 30px rgba(255, 255, 200, 0.2);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -129,6 +73,7 @@
       box-sizing: border-box;
       z-index: 3;
       transition: transform 0.3s ease-in-out;
+      animation: pulseGlow 30s infinite ease-in-out;
     }
 
     .sun-label {
@@ -175,8 +120,25 @@
 
     #intro .sun {
       transform: scale(0.01);
-      animation: sunZoom 5s ease-in-out forwards;
+      animation: introZoom 5s ease-in-out forwards;
       position: relative;
+    }
+
+    @keyframes introZoom {
+      0% {
+        transform: scale(0.01);
+        opacity: 0;
+      }
+
+      60% {
+        transform: scale(1.5);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1.5);
+        opacity: 1;
+      }
     }
 
     #intro-text {
@@ -241,12 +203,11 @@
       cursor: pointer;
       z-index: 3;
       color: #fff;
-      font-size: 1.2em;
+      font-size: 1.5em;
       line-height: 1.2;
       transition: transform 0.4s ease, box-shadow 0.3s ease;
       will-change: transform;
       backface-visibility: hidden;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
       padding: 0;
     }
 
@@ -260,13 +221,15 @@
       top: 0;
       left: 0;
       padding: 0;
+      box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.2);
+      transition: box-shadow 0.3s ease;
     }
 
     .planet-label {
       position: absolute;
-      bottom: 10px;
+      top: 50%;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, -50%);
       text-align: center;
       z-index: 2;
       padding: 0 10px;
@@ -274,8 +237,7 @@
     }
 
     .planet:hover {
-      box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
-      /* stronger hover glow */
+      box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.3);
       z-index: 4;
     }
 
@@ -285,22 +247,6 @@
       text-align: center;
       position: relative;
       z-index: 2;
-    }
-
-    .return-home {
-      position: absolute;
-      bottom: 15px;
-      right: 20px;
-      color: #aaa;
-      font-size: 0.9em;
-      text-decoration: none;
-      opacity: 0.6;
-      transition: opacity 0.3s, color 0.3s;
-    }
-
-    .return-home:hover {
-      opacity: 1;
-      color: #fff;
     }
 
     @media (max-width: 768px) {
@@ -453,37 +399,57 @@
       margin-top: 40px;
     }
 
-   .planet-duo {
-  display: flex;
-  gap: 60px;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
+    .planet-duo {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
 
-.planet-duo a:nth-child(1) {
-  margin-top: 400px;
-  margin-right: -20px;
-}
+    .planet-duo a:nth-child(1) {
+      margin-top: -400px;
+      margin-right: -px;
+    }
 
+    .planet-duo a:nth-child(2) {
+      margin-top: 500px;
+      margin-right: -20px;
+    }
 
-.planet-duo a:nth-child(2) {
-  margin-bottom: 500px;
-  margin-left: -20px;
-}
+    @keyframes pulseGlow {
+      0% {
+        box-shadow: 0 0 30px 10px rgba(255, 204, 0, 0.25);
+      }
 
-@media (max-width: 768px) {
-  .planet-duo {
-    flex-direction: column;
-    align-items: center;
-  }
+      25% {
+        box-shadow: 0 0 50px 20px rgba(255, 204, 0, 0.35);
+      }
 
-  .planet-duo a:nth-child(1),
-  .planet-duo a:nth-child(2) {
-    margin: 0;
-  }
-}
+      50% {
+        box-shadow: 0 0 70px 35px rgba(255, 204, 0, 0.5);
+      }
 
+      75% {
+        box-shadow: 0 0 50px 20px rgba(255, 204, 0, 0.35);
+      }
+
+      100% {
+        box-shadow: 0 0 30px 10px rgba(255, 204, 0, 0.25);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .planet-duo {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .planet-duo a:nth-child(1),
+      .planet-duo a:nth-child(2) {
+        margin: 0;
+      }
+    }
   </style>
 </head>
 
@@ -502,25 +468,26 @@
     <header>
       <div class="planet-flex-wrapper">
         <div class="left-column">
-  <div class="planet-duo">
-    <a href="#blog" class="planet">
-      <img src="Gastyen.png" alt="Blog" />
-      <span class="planet-label">Blog</span>
-    </a>
-    <a href="#contact" class="planet">
-      <img src="Kallabor no backround.png" alt="Contact" />
-      <span class="planet-label">Contact Me</span>
-    </a>
-  </div>
-</div>
-
-
-        <div class="sun">
-          <div class="sun-label">
-            <div class="tagline">Stories That Illuminate</div>
-            <div class="author-name">By Sterling Sykes</div>
+          <div class="planet-duo">
+            <a href="#blog" class="planet">
+              <img src="Gastyen.png" alt="Blog" />
+              <span class="planet-label">Blog</span>
+            </a>
+            <a href="#contact" class="planet">
+              <img src="Kallabor no backround.png" alt="Contact" />
+              <span class="planet-label">Contact Me</span>
+            </a>
           </div>
         </div>
+
+        <a href="#about" class="sun-link">
+          <div class="sun">
+            <div class="sun-label">
+              <div class="tagline">Stories That Illuminate</div>
+              <div class="author-name">By Sterling Sykes</div>
+            </div>
+          </div>
+        </a>
 
         <div class="column right-column gallery-system">
           <div class="gallery-core">
@@ -540,10 +507,14 @@
             </a>
           </div>
         </div>
-      </div>
-      <a href="#site" class="return-to-home">⬆️ Home</a>
-    </header>
 
+    </header>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Hi, I'm Sterling Sykes — a storyteller drawn to the cosmos and the shadowed corners of the imagination. I write to shine light where it's darkest.</p>
+      <p>This site is a gateway into my stories, characters, and the worlds they inhabit. Stay tuned for more!</p>
+      <a href="#site" class="return-home">Return home</a>
+    </section>
     <section id="blog">
       <h2>Blog / Newsletter</h2>
       <p>Coming soon...</p><a href="#site" class="return-home">Return home</a>
@@ -565,6 +536,8 @@
       <p>Form here...</p><a href="#site" class="return-home">Return home</a>
     </section>
   </div>
+  <a href="#site" class="return-home">Return home</a>
+  </section>
 
   <script>
     setTimeout(() => {
