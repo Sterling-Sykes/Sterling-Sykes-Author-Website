@@ -65,6 +65,72 @@
   border-radius: 50%;
   box-shadow:
   0 0 50px 15px rgba(255, 204, 0, 0.4),
+  0 0 80px 30px rgba(255, 255, 200, 0.2);<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sterling Sykes</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      overflow-x: hidden;
+      color: #fff;
+      background: #000;
+    }
+
+    #background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('background.jpeg') repeat-y center top;
+      background-size: cover;
+      z-index: 0;
+    }
+
+    #stars-background,
+    #stars-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      transition: transform 0.5s ease;
+    }
+
+    #stars-background {
+      z-index: 1;
+    }
+
+    #stars-overlay {
+      z-index: 2;
+    }
+
+    header {
+      position: relative;
+      min-height: 120vh;
+      padding-top: 20px;
+      padding-bottom: 60px;
+    }
+
+   .sun {
+  background: 
+    radial-gradient(circle, rgba(255,204,0,0.6), rgba(255,153,0,0.8)),
+    url('KinKazarus.jpg') center center / cover no-repeat;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  box-shadow:
+  0 0 50px 15px rgba(255, 204, 0, 0.4),
   0 0 80px 30px rgba(255, 255, 200, 0.2);
   display: flex;
   align-items: center;
