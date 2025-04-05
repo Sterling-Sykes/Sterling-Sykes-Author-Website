@@ -186,7 +186,6 @@
       transition: transform 0.4s ease, box-shadow 0.3s ease;
       will-change: transform;
       backface-visibility: hidden;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
       padding: 0;
     }
 
@@ -200,6 +199,8 @@
       top: 0;
       left: 0;
       padding: 0;
+      box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.2);
+      transition: box-shadow 0.3s ease;
     }
 
     .planet-label {
@@ -214,8 +215,7 @@
     }
 
     .planet:hover {
-      box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
-      /* stronger hover glow */
+        box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.3);
       z-index: 4;
     }
 
@@ -402,14 +402,14 @@
 }
 
 .planet-duo a:nth-child(1) {
-  margin-top: 400px;
-  margin-right: -20px;
+  margin-top: -400px;
+  margin-right: -px;
 }
 
 
 .planet-duo a:nth-child(2) {
-  margin-bottom: 500px;
-  margin-left: -20px;
+  margin-top: 500px;
+  margin-right: -20px;
 }
 
 @media (max-width: 768px) {
