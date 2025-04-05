@@ -56,7 +56,7 @@
       padding-bottom: 20px;
     }
 
-    .sun--home {
+    .sun {
       width: 520px;
       height: 520px;
       max-width: 90vw;
@@ -70,10 +70,8 @@
       box-sizing: border-box;
       z-index: 3;
       background: none !important;
-      /* Remove these lines to allow glow to work */
-      /* box-shadow: none !important; */
-      /* animation: none !important; */
-      animation: sunPulseGlow 30s ease-in-out infinite;
+      box-shadow: none !important;
+      animation: none !important;
     }
 
     .sun-floater {
@@ -87,26 +85,12 @@
       /* kick in GPU layer */
     }
 
-    .sun {
-      transition: transform 0.4s ease, box-shadow 0.3s ease;
-    }
-
-    .sun:hover {
-      transform: scale(1.8);
-      z-index: 5;
-      box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.3);
-    }
-
     .sun-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 50%;
       display: block;
-    }
-
-    .sun-img {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .sun-label {
@@ -190,7 +174,7 @@
     #intro-text {
       position: absolute;
       color: #fff;
-      font-size: 1.9em;
+      font-size: 1.2em;
       text-align: center;
       max-width: 80%;
       opacity: 0;
@@ -282,8 +266,9 @@
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
     }
 
-    .planet:hover img {
+    .planet:hover {
       box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.3);
+      z-index: 4;
     }
 
     section {
@@ -308,10 +293,19 @@
       .sun-label .author-name {
         font-size: 0.8em;
       }
+    }
 
-      .planet {
-        font-size: 1em;
-      }
+    .sun-label .tagline {
+      font-size: 1em;
+    }
+
+    .sun-label .author-name {
+      font-size: 0.8em;
+    }
+
+    .planet {
+      font-size: 1em;
+    }
     }
 
     .gallery-system {
@@ -463,20 +457,6 @@
       margin-right: -20px;
     }
 
-    @keyframes sunPulseGlow {
-      0% {
-        box-shadow: 0 0 40px 15px rgba(255, 200, 50, 0.3);
-      }
-
-      50% {
-        box-shadow: 0 0 70px 25px rgba(255, 200, 50, 0.6);
-      }
-
-      100% {
-        box-shadow: 0 0 40px 15px rgba(255, 200, 50, 0.3);
-      }
-    }
-
     @keyframes pulseGlow {
       0% {
         box-shadow: 0 0 30px 10px rgba(255, 204, 0, 0.25);
@@ -518,7 +498,6 @@
       border-radius: 50%;
       display: block;
     }
-    
   </style>
 </head>
 
@@ -527,10 +506,11 @@
   <canvas id="stars-background"></canvas>
   <canvas id="stars-overlay"></canvas>
 
- <div id="intro" class="intro">
-  <div id="intro-text">An Author in the dark, bringing you into the light</div>
-</div>
-
+  <div id="intro" class="intro">
+    <div class="sun">
+      <div id="intro-text">An Author in the dark, bringing you into the light</div>
+    </div>
+  </div>
 
   <div id="site">
     <header>
@@ -549,10 +529,8 @@
         </div>
 
         <a href="#about" class="sun-link">
-          <div class="sun sun--home">
-            <!-- scales on hover -->
+          <div class="sun">
             <div class="sun-floater">
-              <!-- floats with JS -->
               <div class="sun-img-wrapper">
                 <img src="KinKaz.png" alt="Sun" class="sun-img" />
               </div>
@@ -636,18 +614,6 @@
       bgCanvas.height = height;
       overlayCanvas.width = width;
       overlayCanvas.height = height;
-    }
-
-    function addParallaxEffect() {
-      const planets = document.querySelectorAll('.planet, .sun');
-      planets.forEach(p => {
-        p.addEventListener('mouseenter', () => {
-          bgCanvas.style.transform = 'translateY(-2px) scale(1.01)';
-        });
-        p.addEventListener('mouseleave', () => {
-          bgCanvas.style.transform = 'translateY(0) scale(1)';
-        });
-      });
     }
 
     function createStars(count) {
