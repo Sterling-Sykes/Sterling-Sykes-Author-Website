@@ -69,8 +69,9 @@
       box-sizing: border-box;
       z-index: 3;
       background: none !important;
-      box-shadow: none !important;
-      animation: none !important;
+      box-shadow: 0 0 60px 30px rgba(255, 204, 0, 0.8);
+      filter: drop-shadow(0 0 20px rgba(255, 204, 0, 0.8));
+      animation: sunGlowPulse 30s ease-in-out infinite;
     }
 
     .sun-floater {
@@ -265,7 +266,7 @@
       left: 0;
       padding: 0;
       box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.2);
-   transition: box-shadow 0.3s ease;
+      transition: box-shadow 0.3s ease;
     }
 
     .planet-label {
@@ -279,9 +280,9 @@
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
     }
 
-  .planet:hover img {
-  box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.3);
-}
+    .planet:hover img {
+      box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.3);
+    }
 
     section {
       height: 100vh;
@@ -459,17 +460,31 @@
       margin-top: 500px;
       margin-right: -20px;
     }
-@keyframes pulseGlow {
+@keyframes sunGlowPulse {
   0% {
     box-shadow: 0 0 40px 10px rgba(255, 200, 50, 0.3);
   }
   50% {
-    box-shadow: 0 0 60px 20px rgba(255, 200, 50, 0.5);
+    box-shadow: 0 0 70px 25px rgba(255, 200, 50, 0.6);
   }
   100% {
     box-shadow: 0 0 40px 10px rgba(255, 200, 50, 0.3);
   }
 }
+
+    @keyframes pulseGlow {
+      0% {
+        box-shadow: 0 0 40px 10px rgba(255, 200, 50, 0.3);
+      }
+
+      50% {
+        box-shadow: 0 0 60px 20px rgba(255, 200, 50, 0.5);
+      }
+
+      100% {
+        box-shadow: 0 0 40px 10px rgba(255, 200, 50, 0.3);
+      }
+    }
 
     @keyframes pulseGlow {
       0% {
