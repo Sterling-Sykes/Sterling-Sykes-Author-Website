@@ -55,26 +55,32 @@
       padding-bottom: 20px;
     }
 
-   .sun {
-  background: 
-    radial-gradient(circle, rgba(255,204,0,0.6), rgba(255,153,0,0.8)),
-    url('KinKaz.png') center center / cover no-repeat;
+ .sun {
   width: 420px;
   height: 420px;
+  max-width: 90vw;
+  max-height: 90vw;
   border-radius: 50%;
-  box-shadow:
-  0 0 50px 15px rgba(255, 204, 0, 0.4),
-  0 0 80px 30px rgba(255, 255, 200, 0.2);
+  overflow: hidden;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 20px;
   box-sizing: border-box;
   z-index: 3;
-  transition: transform 0.3s ease-in-out;
-  animation: pulseGlow 30s infinite ease-in-out;
+  background: none;
+  box-shadow: none;
+  animation: none;
 }
+
+.sun-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
 
     .sun-label {
       display: flex;
@@ -246,11 +252,21 @@
       z-index: 2;
     }
 
-    @media (max-width: 768px) {
-      .sun {
-        width: 130px;
-        height: 130px;
-      }
+  @media (max-width: 768px) {
+  .sun {
+    width: 220px !important;
+    height: 220px !important;
+    margin-bottom: 40px;
+  }
+
+  .sun-label .tagline {
+    font-size: 1em;
+  }
+
+  .sun-label .author-name {
+    font-size: 0.8em;
+  }
+}
 
       .sun-label .tagline {
         font-size: 1em;
@@ -472,14 +488,14 @@
           </div>
         </div>
 
-        <a href="#about" class="sun-link">
-          <div class="sun">
-            <div class="sun-label">
-              <div class="tagline">Stories That Illuminate</div>
-              <div class="author-name">By Sterling Sykes</div>
-            </div>
-          </div>
-        </a>
+      <div class="sun">
+  <img src="KinKaz.png" alt="Sun" class="sun-img" />
+  <div class="sun-label">
+    <div class="tagline">Stories That Illuminate</div>
+    <div class="author-name">By Sterling Sykes</div>
+  </div>
+</div>
+
 
         <div class="column right-column gallery-system">
           <div class="gallery-core">
