@@ -51,7 +51,7 @@
     header {
       position: relative;
       min-height: 120vh;
-      padding-top: 10px;
+      padding-top: 20px;
       padding-bottom: 60px;
     }
 
@@ -205,9 +205,9 @@
 
     .planet-label {
       position: absolute;
-      bottom: 10px;
+      top: 50%;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, -50%);
       text-align: center;
       z-index: 2;
       padding: 0 10px;
@@ -215,7 +215,7 @@
     }
 
     .planet:hover {
-        box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.3);
       z-index: 4;
     }
 
@@ -393,37 +393,35 @@
       margin-top: 40px;
     }
 
-   .planet-duo {
-  display: flex;
-  gap: 60px;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
+    .planet-duo {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
 
-.planet-duo a:nth-child(1) {
-  margin-top: -400px;
-  margin-right: -px;
-}
+    .planet-duo a:nth-child(1) {
+      margin-top: -400px;
+      margin-right: -px;
+    }
 
+    .planet-duo a:nth-child(2) {
+      margin-top: 500px;
+      margin-right: -20px;
+    }
 
-.planet-duo a:nth-child(2) {
-  margin-top: 500px;
-  margin-right: -20px;
-}
+    @media (max-width: 768px) {
+      .planet-duo {
+        flex-direction: column;
+        align-items: center;
+      }
 
-@media (max-width: 768px) {
-  .planet-duo {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .planet-duo a:nth-child(1),
-  .planet-duo a:nth-child(2) {
-    margin: 0;
-  }
-}
-
+      .planet-duo a:nth-child(1),
+      .planet-duo a:nth-child(2) {
+        margin: 0;
+      }
+    }
   </style>
 </head>
 
@@ -442,18 +440,17 @@
     <header>
       <div class="planet-flex-wrapper">
         <div class="left-column">
-  <div class="planet-duo">
-    <a href="#blog" class="planet">
-      <img src="Gastyen.png" alt="Blog" />
-      <span class="planet-label">Blog</span>
-    </a>
-    <a href="#contact" class="planet">
-      <img src="Kallabor no backround.png" alt="Contact" />
-      <span class="planet-label">Contact Me</span>
-    </a>
-  </div>
-</div>
-
+          <div class="planet-duo">
+            <a href="#blog" class="planet">
+              <img src="Gastyen.png" alt="Blog" />
+              <span class="planet-label">Blog</span>
+            </a>
+            <a href="#contact" class="planet">
+              <img src="Kallabor no backround.png" alt="Contact" />
+              <span class="planet-label">Contact Me</span>
+            </a>
+          </div>
+        </div>
 
         <div class="sun">
           <div class="sun-label">
@@ -465,13 +462,13 @@
         <div class="column right-column gallery-system">
           <div class="gallery-core">
             <a href="#gallery" class="planet">
-              <img src="Cleos.png" alt="Gallery" />
+              <img src="Kallabor no backround.png" alt="Gallery" />
               <span class="planet-label">Gallery</span>
             </a>
           </div>
           <div class="gallery-moons">
             <a href="#chapter" class="planet moon">
-              <img src="Epio.png" alt="Sample Chapters" />
+              <img src="Kallabor no backround.png" alt="Sample Chapters" />
               <span class="planet-label">Sample Chapters</span>
             </a>
             <a href="#story" class="planet moon">
