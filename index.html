@@ -55,11 +55,14 @@
       padding-bottom: 20px;
     }
 
-   .sun {
-  background:
-    radial-gradient(circle, rgba(255,204,0,0.6), rgba(255,153,0,0.8)),
-    url('KinKazarus.png') center center / cover no-repeat;
-   
+    .sun {
+      background-image:
+        url('sun-texture.png'),
+        radial-gradient(circle, rgba(255, 204, 0, 0.6), rgba(255, 153, 0, 0.8)),
+        url('KinKazarus.png');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
       width: 420px;
       height: 420px;
       border-radius: 50%;
