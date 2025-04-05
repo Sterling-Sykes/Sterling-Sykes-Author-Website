@@ -390,6 +390,8 @@
       min-height: 100vh;
       box-sizing: border-box;
       gap: 40px;
+       position: relative;
+  z-index: 2;        
     }
 
     .planet-flex-wrapper {
@@ -535,10 +537,15 @@
     setTimeout(() => {
       document.getElementById('intro').classList.add('show-text');
     }, 2000);
-    document.getElementById('intro').addEventListener('click', () => {
-      document.body.classList.add('reveal');
-      document.getElementById('intro').style.display = 'none';
-    });
+  document.getElementById('intro').addEventListener('click', () => {
+  document.body.classList.add('reveal');
+  document.getElementById('intro').style.display = 'none';
+
+  // Scale up the sun inside #site
+  const siteSun = document.querySelector('#site .sun');
+  siteSun.style.transform = 'translate(-50%, -50%) scale(1.5)';
+});
+
     const bgCanvas = document.getElementById('stars-background');
     const overlayCanvas = document.getElementById('stars-overlay');
     const bgCtx = bgCanvas.getContext('2d');
@@ -668,4 +675,4 @@
   </script>
 </body>
 
-</html>
+</html
