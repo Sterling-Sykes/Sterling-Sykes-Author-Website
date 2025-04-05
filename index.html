@@ -50,9 +50,9 @@
 
     header {
       position: relative;
-      min-height: 120vh;
+      min-height: 100vh;
       padding-top: 20px;
-      padding-bottom: 60px;
+      padding-bottom: 20px;
     }
 
     .sun {
@@ -409,47 +409,46 @@
 
     .planet-duo a:nth-child(1) {
       margin-top: -400px;
-      margin-right: -px;
-    }
+      margin-right: 0;
 
-    .planet-duo a:nth-child(2) {
-      margin-top: 500px;
-      margin-right: -20px;
-    }
-
-    @keyframes pulseGlow {
-      0% {
-        box-shadow: 0 0 30px 10px rgba(255, 204, 0, 0.25);
-      }
-
-      25% {
-        box-shadow: 0 0 50px 20px rgba(255, 204, 0, 0.35);
-      }
-
-      50% {
-        box-shadow: 0 0 70px 35px rgba(255, 204, 0, 0.5);
-      }
-
-      75% {
-        box-shadow: 0 0 50px 20px rgba(255, 204, 0, 0.35);
-      }
-
-      100% {
-        box-shadow: 0 0 30px 10px rgba(255, 204, 0, 0.25);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .planet-duo {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .planet-duo a:nth-child(1),
       .planet-duo a:nth-child(2) {
-        margin: 0;
+        margin-top: 500px;
+        margin-right: -20px;
       }
-    }
+
+      @keyframes pulseGlow {
+        0% {
+          box-shadow: 0 0 30px 10px rgba(255, 204, 0, 0.25);
+        }
+
+        25% {
+          box-shadow: 0 0 50px 20px rgba(255, 204, 0, 0.35);
+        }
+
+        50% {
+          box-shadow: 0 0 70px 35px rgba(255, 204, 0, 0.5);
+        }
+
+        75% {
+          box-shadow: 0 0 50px 20px rgba(255, 204, 0, 0.35);
+        }
+
+        100% {
+          box-shadow: 0 0 30px 10px rgba(255, 204, 0, 0.25);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .planet-duo {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .planet-duo a:nth-child(1),
+        .planet-duo a:nth-child(2) {
+          margin: 0;
+        }
+      }
   </style>
 </head>
 
@@ -676,4 +675,4 @@
   </script>
 </body>
 
-</html
+</html>
