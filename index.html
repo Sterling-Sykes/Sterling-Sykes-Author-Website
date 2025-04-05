@@ -56,30 +56,31 @@
     }
 
     .sun {
-       width: 420px;
-  height: 420px;
-  border-radius: 50%;
- .sun {
-  background-image:
-    radial-gradient(circle, rgba(255, 204, 0, 0.6), rgba(255, 153, 0, 0.8)),
-    url('KinKazarus');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover, cover;
-}
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
 
-  box-shadow: 
-    0 0 50px 15px rgba(255, 204, 0, 0.4),
-    0 0 80px 30px rgba(255, 255, 200, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
-  box-sizing: border-box;
-  z-index: 3;
-  transition: transform 0.3s ease-in-out;
-  animation: pulseGlow 30s infinite ease-in-out;
+      .sun {
+        background: radial-gradient(circle, rgba(255, 204, 0, 0.6), rgba(255, 153, 0, 0.8)),
+          url('KinKazarus.png') center center / cover no-repeat;
+        background-size: cover;
+        /* Ensures the background image covers the .sun element */
+        width: 420px;
+        height: 420px;
+        border-radius: 50%;
+      }
+
+      box-shadow: 0 0 50px 15px rgba(255, 204, 0, 0.4),
+      0 0 80px 30px rgba(255, 255, 200, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+      z-index: 3;
+      transition: transform 0.3s ease-in-out;
+      animation: pulseGlow 30s infinite ease-in-out;
     }
 
     .sun-label {
@@ -503,7 +504,7 @@
           </div>
           <div class="gallery-moons">
             <a href="#chapter" class="planet moon">
-              <img src="Epio.png" alt="Sample Chapters" />
+              <img src="Kallabor no backround.png" alt="Sample Chapters" />
               <span class="planet-label">Sample Chapters</span>
             </a>
             <a href="#story" class="planet moon">
