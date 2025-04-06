@@ -67,15 +67,9 @@
       align-items: center;
       justify-content: center;
       box-sizing: border-box;
-      box-shadow: 0 0 5vw 1vw rgba(255, 204, 0, 0.6);
       z-index: 3;
       background: none !important;
       transition: transform 0.4s ease, box-shadow 0.3s ease;
-      animation: sunGlowPulse 30s ease-in-out infinite;
-    }
-
-    .sun.glow-enabled .sun-img {
-      box-shadow: 0 0 40px 20px rgba(255, 204, 0, 0.4);
       animation: sunGlowPulse 30s ease-in-out infinite;
     }
 
@@ -102,7 +96,6 @@
       object-fit: cover;
       border-radius: 50%;
       display: block;
-      filter: drop-shadow(0 0 20px rgba(255, 204, 0, 0.6));
     }
 
     .sun-label {
@@ -123,8 +116,13 @@
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      overflow: hidden;
+      overflow: visible;
+      /* 🔄 Changed from hidden */
       position: relative;
+      box-shadow: 0 0 40px 20px rgba(255, 204, 0, 0.4);
+      /* ✅ Applies glow here */
+      transition: box-shadow 0.3s ease;
+      animation: sunGlowPulse 30s ease-in-out infinite;
     }
 
     body.reveal .sun-label {
@@ -517,10 +515,6 @@
         width: 60vw;
         height: 60vw;
         margin-bottom: 40px;
-      }
-
-      .sun.glow-enabled .sun-img {
-        box-shadow: 0 0 20px 10px rgba(255, 204, 0, 0.4);
       }
 
       .planet {
