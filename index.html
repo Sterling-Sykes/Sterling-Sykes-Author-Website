@@ -69,8 +69,12 @@
       box-sizing: border-box;
       z-index: 3;
       background: none !important;
-      box-shadow: 0 0 60px 30px rgba(255, 204, 0, 0.8);
-      filter: drop-shadow(0 0 20px rgba(255, 204, 0, 0.8));
+      transition: transform 0.4s ease, box-shadow 0.3s ease;
+      animation: sunGlowPulse 30s ease-in-out infinite;
+    }
+
+    .sun.glow-enabled .sun-img {
+      box-shadow: 0 0 40px 20px rgba(255, 204, 0, 0.4);
       animation: sunGlowPulse 30s ease-in-out infinite;
     }
 
@@ -83,10 +87,6 @@
       will-change: transform;
       transform: translate3d(0, 0, 0);
       /* kick in GPU layer */
-    }
-
-    .sun {
-      transition: transform 0.4s ease, box-shadow 0.3s ease;
     }
 
     .sun:hover {
@@ -161,6 +161,9 @@
 
     #intro .sun {
       position: relative;
+      box-shadow: none !important;
+      filter: none !important;
+      animation: none !important;
     }
 
     #intro .sun-img {
@@ -298,35 +301,29 @@
         height: 220px !important;
         margin-bottom: 40px;
       }
+    }
 
-      .sun-label .tagline {
-        font-size: 1em;
-      }
-
-      .sun-label .author-name {
-        font-size: 0.8em;
-      }
-
-      .planet {
-        font-size: 1em;
+    @media (max-width: 768px) {
+      .sun.glow-enabled .sun-img {
+        box-shadow: 0 0 20px 10px rgba(255, 204, 0, 0.4);
       }
     }
 
-    .gallery-system {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 40px;
+    .sun-label .tagline {
+      font-size: 1em;
+    }
+
+    .sun-label .author-name {
+      font-size: 0.8em;
+    }
+
+    .planet {
+      font-size: 1em;
+    }
     }
 
     .gallery-core {
       flex-shrink: 0;
-    }
-
-    .gallery-moons {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
     }
 
     @media (max-width: 1024px) {
@@ -366,7 +363,7 @@
       flex-direction: column;
       align-items: center;
       gap: 80px;
-      flex-wrap: wrap;/
+      flex-wrap: wrap;
     }
 
     .gallery-system {
@@ -460,29 +457,18 @@
       margin-top: 500px;
       margin-right: -20px;
     }
-@keyframes sunGlowPulse {
-  0% {
-    box-shadow: 0 0 40px 10px rgba(255, 200, 50, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 70px 25px rgba(255, 200, 50, 0.6);
-  }
-  100% {
-    box-shadow: 0 0 40px 10px rgba(255, 200, 50, 0.3);
-  }
-}
 
-    @keyframes pulseGlow {
+    @keyframes sunGlowPulse {
       0% {
-        box-shadow: 0 0 40px 10px rgba(255, 200, 50, 0.3);
+        box-shadow: 0 0 30px 10px rgba(255, 200, 50, 0.3);
       }
 
       50% {
-        box-shadow: 0 0 60px 20px rgba(255, 200, 50, 0.5);
+        box-shadow: 0 0 50px 20px rgba(255, 200, 50, 0.6);
       }
 
       100% {
-        box-shadow: 0 0 40px 10px rgba(255, 200, 50, 0.3);
+        box-shadow: 0 0 30px 10px rgba(255, 200, 50, 0.3);
       }
     }
 
@@ -536,7 +522,7 @@
   <canvas id="stars-overlay"></canvas>
 
   <div id="intro" class="intro">
-    <div class="sun">
+    <div class="sun intro-sun">
       <div id="intro-text">An Author in the dark, bringing you into the light</div>
     </div>
   </div>
@@ -558,39 +544,38 @@
         </div>
 
         <a href="#about" class="sun-link">
-          <div class="sun">
-            <!-- scales on hover -->
-            <div class="sun-floater">
-              <!-- floats with JS -->
-              <div class="sun-img-wrapper">
-                <img src="KinKaz.png" alt="Sun" class="sun-img" />
-              </div>
-              <div class="sun-label">
-                <div class="tagline">Stories That Illuminate</div>
-                <div class="author-name">By Sterling Sykes</div>
+          <a href="#about" class="sun-link">
+            <div class="sun glow-enabled">
+              <div class="sun-floater">
+                <div class="sun-img-wrapper">
+                  <img src="KinKaz.png" alt="Sun" class="sun-img" />
+                </div>
+                <div class="sun-label">
+                  <div class="tagline">Stories That Illuminate</div>
+                  <div class="author-name">By Sterling Sykes</div>
+                </div>
               </div>
             </div>
-          </div>
-        </a>
+          </a>
 
-        <div class="column right-column gallery-system">
-          <div class="gallery-core">
-            <a href="#gallery" class="planet">
-              <img src="Cleos.png" alt="Gallery" />
-              <span class="planet-label">Gallery</span>
-            </a>
+          <div class="column right-column gallery-system">
+            <div class="gallery-core">
+              <a href="#gallery" class="planet">
+                <img src="Cleos.png" alt="Gallery" />
+                <span class="planet-label">Gallery</span>
+              </a>
+            </div>
+            <div class="gallery-moons">
+              <a href="#chapter" class="planet moon">
+                <img src="Epio.png" alt="Sample Chapters" />
+                <span class="planet-label">Sample Chapters</span>
+              </a>
+              <a href="#story" class="planet moon">
+                <img src="Claya.png" alt="Short Stories" />
+                <span class="planet-label">Short Stories</span>
+              </a>
+            </div>
           </div>
-          <div class="gallery-moons">
-            <a href="#chapter" class="planet moon">
-              <img src="Epio.png" alt="Sample Chapters" />
-              <span class="planet-label">Sample Chapters</span>
-            </a>
-            <a href="#story" class="planet moon">
-              <img src="Claya.png" alt="Short Stories" />
-              <span class="planet-label">Short Stories</span>
-            </a>
-          </div>
-        </div>
 
     </header>
     <section id="about">
@@ -630,6 +615,7 @@
     document.getElementById('intro').addEventListener('click', () => {
       document.body.classList.add('reveal');
       document.getElementById('intro').style.display = 'none';
+      document.querySelector('#site .sun').classList.add('glow-enabled');
     });
     const bgCanvas = document.getElementById('stars-background');
     const overlayCanvas = document.getElementById('stars-overlay');
