@@ -56,10 +56,10 @@
     }
 
     .sun {
-      width: 520px;
-      height: 520px;
-      max-width: 90vw;
-      max-height: 90vw;
+      width: 40vw;
+      height: 40vw;
+      max-width: 520px;
+      max-height: 520px;
       border-radius: 50%;
       overflow: hidden;
       position: relative;
@@ -67,6 +67,7 @@
       align-items: center;
       justify-content: center;
       box-sizing: border-box;
+      box-shadow: 0 0 5vw 1vw rgba(255, 204, 0, 0.6);
       z-index: 3;
       background: none !important;
       transition: transform 0.4s ease, box-shadow 0.3s ease;
@@ -313,8 +314,8 @@
 
     @media (max-width: 768px) {
       .sun {
-        width: 220px !important;
-        height: 220px !important;
+        width: 60vw;
+        height: 60vw;
         margin-bottom: 40px;
       }
     }
@@ -511,6 +512,16 @@
     }
 
     @media (max-width: 768px) {
+      .sun {
+        width: 60vw;
+        height: 60vw;
+        margin-bottom: 40px;
+      }
+
+      .sun.glow-enabled .sun-img {
+        box-shadow: 0 0 20px 10px rgba(255, 204, 0, 0.4);
+      }
+
       .planet {
         width: 60vw;
         height: 60vw;
@@ -551,11 +562,13 @@
         <div class="left-column">
           <div class="planet-duo">
             <a href="#blog" class="planet">
-              <img src="Gastyen.png" alt="Blog" />
+              <img src="Gastyen.png" alt="Blog" loading="lazy" />
+
               <span class="planet-label">Blog</span>
             </a>
             <a href="#contact" class="planet">
-              <img src="Kallabor no backround.png" alt="Contact" />
+              <img src="Kallabor no backround.png" alt="Contact" loading="lazy" />
+
               <span class="planet-label">Contact Me</span>
             </a>
           </div>
@@ -565,7 +578,8 @@
           <div class="sun glow-enabled">
             <div class="sun-floater">
               <div class="sun-img-wrapper">
-                <img src="KinKaz.png" alt="Sun" class="sun-img" />
+                <img src="KinKaz.png" alt="Sun" class="sun-img" loading="lazy" />
+
               </div>
               <div class="sun-label">
                 <div class="tagline">Stories That Illuminate</div>
@@ -578,19 +592,22 @@
         <div class="column right-column gallery-system">
           <div class="gallery-core">
             <a href="#gallery" class="planet">
-              <img src="Cleos.png" alt="Gallery" />
+              <img src="Cleos.png" alt="Gallery" loading="lazy" />
+
               <span class="planet-label">Gallery</span>
             </a>
           </div>
           <div class="gallery-moons">
             <a href="#chapter" class="planet moon">
-              <img src="Epio.png" alt="Sample Chapters" />
+              <img src="Epio.png" alt="Sample Chapters" loading="lazy" />
+
               <span class="planet-label">Sample Chapters</span>
-            </a>
-            <a href="#story" class="planet moon">
-              <img src="Claya.png" alt="Short Stories" />
-              <span class="planet-label">Short Stories</span>
-            </a>
+
+              <a href="#story" class="planet moon">
+                <img src="Claya.png" alt="Short Stories" loading="lazy" />
+
+                <span class="planet-label">Short Stories</span>
+              </a>
           </div>
         </div>
 
