@@ -56,21 +56,29 @@
     }
 
     .sun {
-      width: 40vw;
-      height: 40vw;
-      max-width: 520px;
-      max-height: 520px;
+      background:
+        url('KinKazarus.jpg') center center / cover no-repeat;
+      width: 420px;
+      height: 420px;
       border-radius: 50%;
-      overflow: hidden;
-      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
+      text-align: center;
+      padding: 20px;
       box-sizing: border-box;
       z-index: 3;
-      background: none !important;
-      transition: transform 0.4s ease, box-shadow 0.3s ease;
-      animation: sunGlowPulse 30s ease-in-out infinite;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .sun.glow-enabled {
+      background:
+        radial-gradient(circle, rgba(255, 204, 0, 0.3), rgba(255, 153, 0, 0)),
+        url('KinKazarus.jpg') center center / cover no-repeat;
+      box-shadow:
+        0 0 20px 5px rgba(255, 204, 0, 0.25),
+        0 0 30px 10px rgba(255, 255, 200, 0.15);
+      animation: pulseGlow 30s infinite ease-in-out;
     }
 
     .sun-floater {
@@ -187,11 +195,17 @@
     #intro-text {
       position: absolute;
       color: #fff;
-      font-size: 1.85em;
+      font-size: 2em;
+      /* bigger size to encourage wrapping */
       text-align: center;
-      max-width: 80%;
+      max-width: 420px;
+      /* force narrower box for two-line wrap */
+      line-height: 1.4;
       opacity: 0;
       transition: opacity 2s ease;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
 
     #intro.show-text #intro-text {
@@ -657,6 +671,7 @@
     document.getElementById('intro').addEventListener('click', () => {
       document.body.classList.add('reveal');
       document.getElementById('intro').style.display = 'none';
+      // Add glow after intro
       document.querySelector('#site .sun').classList.add('glow-enabled');
     });
     const bgCanvas = document.getElementById('stars-background');
